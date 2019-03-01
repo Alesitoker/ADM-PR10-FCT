@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">ADM-PR10-FCT</string>
+
+    <string name="ProximasVisitasFragment_title">Proximas visitas</string>
+    <string name="AlumnosFragment_title">Alumnos</string>
+    <string name="EmpresasFragment_title">Empresas</string>
+    <string name="VisitasFragment_title">Visitas</string>
+
+    <string name="activity_main_header_lblUserName">User</string>
+    <string name="activity_main_header_email">example@gmail.com</string>
 </resources>

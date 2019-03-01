@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/empresasFragment"
+        android:title="@string/EmpresasFragment_title"/>
+    <item
+        android:id="@+id/alumnosFragment"
+        android:title="@string/AlumnosFragment_title"/>
+    <item
+        android:id="@+id/visitasFragment"
+        android:title="@string/VisitasFragment_title"/>
+    <item
+        android:id="@+id/proximasVisitasFragment"
+        android:title="@string/ProximasVisitasFragment_title"/>
+</menu>

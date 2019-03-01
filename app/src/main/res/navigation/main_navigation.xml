@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/proximasVisitasFragment">
+    <fragment
+        android:id="@+id/proximasVisitasFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.proximasVisitas.ProximasVisitasFragment"
+        android:label="@string/ProximasVisitasFragment_title"
+        tools:layout="@layout/fragment_proximasvisitas" />
+    <fragment
+        android:id="@+id/alumnosFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.alumno.AlumnosFragment"
+        android:label="@string/AlumnosFragment_title"
+        tools:layout="@layout/fragment_alumnos" />
+    <fragment
+        android:id="@+id/empresasFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.empresa.EmpresasFragment"
+        android:label="@string/EmpresasFragment_title"
+        tools:layout="@layout/fragment_empresas" />
+    <fragment
+        android:id="@+id/visitasFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visita.VisitasFragment"
+        android:label="@string/VisitasFragment_title"
+        tools:layout="@layout/fragment_visitas" />
+</navigation>
