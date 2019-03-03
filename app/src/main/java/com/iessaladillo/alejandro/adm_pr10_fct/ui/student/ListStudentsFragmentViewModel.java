@@ -5,23 +5,23 @@ import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Student;
 
 import java.util.List;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ListStudentsFragmentViewModel extends ViewModel {
 
     MutableLiveData<List<Student>> liveData = new MutableLiveData<>();
+    Repository repository;
 
     public ListStudentsFragmentViewModel(Repository repository) {
-
+        this.repository = repository;
     }
 
     public void addStudent() {
 
     }
 
-    public LiveData<List<Student>> getStudents() {
+    public MutableLiveData<List<Student>> getStudents() {
         return liveData;
     }
 }

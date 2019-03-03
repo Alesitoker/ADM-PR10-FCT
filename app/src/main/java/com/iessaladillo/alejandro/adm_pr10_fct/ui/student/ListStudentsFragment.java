@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
 
@@ -42,7 +43,7 @@ public class ListStudentsFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this).get(ListStudentsFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this, new ListStudentsFragmentViewModelFactory(new RepositoryImpl())).get(ListStudentsFragmentViewModel.class);
         setupToolbar();
         setupViews();
         observeStudents();
