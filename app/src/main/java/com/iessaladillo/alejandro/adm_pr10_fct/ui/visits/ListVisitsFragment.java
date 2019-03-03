@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentVisitsBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListVisitsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
 
 import androidx.annotation.NonNull;
@@ -14,9 +14,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
-public class VisitsFragment extends Fragment {
+public class ListVisitsFragment extends Fragment {
 
-    private FragmentVisitsBinding b;
+    private FragmentListVisitsBinding b;
     private ToolbarConfigurationInterface toolbarConfiguration;
 
     @Override
@@ -28,7 +28,7 @@ public class VisitsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        b = FragmentVisitsBinding.inflate(inflater, container, false);
+        b = FragmentListVisitsBinding.inflate(inflater, container, false);
         return b.getRoot();
     }
 

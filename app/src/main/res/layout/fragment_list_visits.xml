@@ -28,7 +28,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lstStudent"
+            android:id="@+id/lstVisits"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -39,8 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:drawableTop="@drawable/ic_company_add_black"
-            android:text="@string/list_companies_empty_text"
+            android:drawableTop="@drawable/ic_visit_add_black_24dp"
+            android:text="@string/list_visits_empty_text"
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

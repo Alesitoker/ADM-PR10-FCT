@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModel;
 
 public class ListStudentsFragmentViewModel extends ViewModel {
 
-    MutableLiveData<List<Student>> liveData = new MutableLiveData<>();
+    MutableLiveData<List<Student>> students = new MutableLiveData<>();
     Repository repository;
 
     public ListStudentsFragmentViewModel(Repository repository) {
@@ -22,6 +22,6 @@ public class ListStudentsFragmentViewModel extends ViewModel {
     }
 
     public MutableLiveData<List<Student>> getStudents() {
-        return liveData;
+        return students;
     }
 }

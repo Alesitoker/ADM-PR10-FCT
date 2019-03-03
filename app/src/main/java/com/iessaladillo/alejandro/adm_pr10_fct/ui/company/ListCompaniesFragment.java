@@ -1,5 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.student;
-
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.company;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,23 +8,28 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
-import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
+import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.student.ListStudentsFragmentAdapter;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-public class ListStudentsFragment extends Fragment {
+public class ListCompaniesFragment extends Fragment {
 
-    private FragmentListStudentsBinding b;
+    private FragmentListCompaniesBinding b;
     private ToolbarConfigurationInterface toolbarConfiguration;
-    private ListStudentsFragmentViewModel viewModel;
-    private ListStudentsFragmentAdapter listAdapter;
+    private ListCompaniesFragmentViewModel viewModel;
+    private ListCompaniesFragmentAdapter listAdapter;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -36,25 +40,24 @@ public class ListStudentsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        b = FragmentListStudentsBinding.inflate(inflater, container, false);
+        b = FragmentListCompaniesBinding.inflate(inflater, container, false);
         return b.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this,
-                new ListStudentsFragmentViewModelFactory(new RepositoryImpl())).
-                get(ListStudentsFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this, new ListCompaniesFragmentViewModelFactory(
+                new RepositoryImpl())).get(ListCompaniesFragmentViewModel.class);
         setupToolbar();
         setupViews();
-        observeStudents();
+        observeCompanies();
     }
 
-    private void observeStudents() {
-        viewModel.getStudents().observe(this, student -> {
-            listAdapter.submitList(student);
-            b.lblEmptyView.setVisibility(student.size() == 0 ? View.VISIBLE : View.INVISIBLE);
+    private void observeCompanies() {
+        viewModel.getCompanies().observe(this, companies -> {
+            listAdapter.submitList(companies);
+            b.lblEmptyView.setVisibility(companies.size() == 0 ? View.VISIBLE : View.INVISIBLE);
         });
     }
 
@@ -65,22 +68,14 @@ public class ListStudentsFragment extends Fragment {
 
     private void setupViews() {
         setupRecyclerView();
-
-        b.fabAdd.setOnClickListener(v -> navigateToAddStudent());
-        b.lblEmptyView.setOnClickListener(v -> navigateToAddStudent());
-
     }
 
     private void setupRecyclerView() {
-        listAdapter = new ListStudentsFragmentAdapter();
+        listAdapter = new ListCompaniesFragmentAdapter();
 
-        b.lstStudent.setHasFixedSize(true);
-        b.lstStudent.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstStudent_columns)));
-        b.lstStudent.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
-        b.lstStudent.setAdapter(listAdapter);
-    }
-
-    private void navigateToAddStudent() {
-
+        b.lstCompany.setHasFixedSize(true);
+        b.lstCompany.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstCompany_columns)));
+        b.lstCompany.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
+        b.lstCompany.setAdapter(listAdapter);
     }
 }
