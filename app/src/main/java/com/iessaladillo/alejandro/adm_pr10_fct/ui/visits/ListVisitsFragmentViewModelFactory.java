@@ -1,4 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.student;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.data.Repository;
 
@@ -6,11 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-public class ListStudentsFragmentViewModelFactory implements ViewModelProvider.Factory {
+public class ListVisitsFragmentViewModelFactory implements ViewModelProvider.Factory {
 
-    private Repository repository;
+    Repository repository;
 
-    public ListStudentsFragmentViewModelFactory(Repository repository) {
+    public ListVisitsFragmentViewModelFactory(Repository repository) {
         this.repository = repository;
     }
 
@@ -18,6 +18,6 @@ public class ListStudentsFragmentViewModelFactory implements ViewModelProvider.F
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         //noinspection unchecked
-        return (T) new ListStudentsFragmentViewModel(repository);
+        return (T) new ListVisitsFragmentViewModel(repository);
     }
 }

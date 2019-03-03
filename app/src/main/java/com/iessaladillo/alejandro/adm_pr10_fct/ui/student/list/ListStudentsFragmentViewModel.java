@@ -1,4 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.student;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.data.Repository;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Student;

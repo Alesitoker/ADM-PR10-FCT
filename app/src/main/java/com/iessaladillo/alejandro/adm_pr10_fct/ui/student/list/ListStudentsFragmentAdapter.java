@@ -1,4 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.student;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;

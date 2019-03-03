@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_nextvisits" />
     <fragment
         android:id="@+id/alumnosFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.ListStudentsFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list.ListStudentsFragment"
         android:label="@string/AlumnosFragment_title"
         tools:layout="@layout/fragment_list_students" />
     <fragment

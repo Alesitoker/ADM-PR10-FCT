@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-</LinearLayout>
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/CLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lblStudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/full_names" />
+
+        <TextView
+            android:id="@+id/lblDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/lblStudentName"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="12/02/2019" />
+
+        <TextView
+            android:id="@+id/lblStartTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/lblTimeSeparator"
+            app:layout_constraintTop_toBottomOf="@+id/lblDay"
+            tools:text="12:00" />
+
+        <TextView
+            android:id="@+id/lblTimeSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/visits_item_timeSeparator"
+            app:layout_constraintStart_toEndOf="@+id/lblEndTime"
+            app:layout_constraintTop_toBottomOf="@+id/lblDay" />
+
+        <TextView
+            android:id="@+id/lblEndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/lblDay"
+            app:layout_constraintTop_toBottomOf="@+id/lblDay"
+            tools:text="12:30" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

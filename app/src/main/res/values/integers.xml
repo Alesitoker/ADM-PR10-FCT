@@ -2,4 +2,5 @@
 <resources>
     <integer name="lstStudent_columns">1</integer>
     <integer name="lstCompany_columns">1</integer>
+    <integer name="lstVisit_columns">1</integer>
 </resources>

@@ -8,18 +8,13 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
-import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
-import com.iessaladillo.alejandro.adm_pr10_fct.ui.student.ListStudentsFragmentAdapter;
-
-import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
