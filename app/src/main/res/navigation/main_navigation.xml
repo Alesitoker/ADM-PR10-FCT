@@ -6,22 +6,22 @@
     app:startDestination="@id/proximasVisitasFragment">
     <fragment
         android:id="@+id/proximasVisitasFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.proximasVisitas.ProximasVisitasFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.nextVisits.NextVisitsFragment"
         android:label="@string/ProximasVisitasFragment_title"
-        tools:layout="@layout/fragment_proximasvisitas" />
+        tools:layout="@layout/fragment_nextvisits" />
     <fragment
         android:id="@+id/alumnosFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.alumno.AlumnosFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.ListStudentsFragment"
         android:label="@string/AlumnosFragment_title"
-        tools:layout="@layout/fragment_alumnos" />
+        tools:layout="@layout/fragment_list_students" />
     <fragment
         android:id="@+id/empresasFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.empresa.EmpresasFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.company.CompaniesFragment"
         android:label="@string/EmpresasFragment_title"
-        tools:layout="@layout/fragment_empresas" />
+        tools:layout="@layout/fragment_companies" />
     <fragment
         android:id="@+id/visitasFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visita.VisitasFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.VisitsFragment"
         android:label="@string/VisitasFragment_title"
-        tools:layout="@layout/fragment_visitas" />
+        tools:layout="@layout/fragment_visits" />
 </navigation>

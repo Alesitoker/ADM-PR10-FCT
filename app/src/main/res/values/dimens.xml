@@ -6,4 +6,5 @@
     <dimen name="navigation_drawer_header_profile_marginTop">16dp</dimen>
 
     <dimen name="activity_main_drawer_imgProfile_width">64dp</dimen>
+    <dimen name="margin_fab">16dp</dimen>
 </resources>
