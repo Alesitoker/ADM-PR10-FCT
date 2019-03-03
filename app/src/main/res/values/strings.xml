@@ -8,4 +8,7 @@
 
     <string name="activity_main_header_lblUserName">User</string>
     <string name="activity_main_header_email">example@gmail.com</string>
+    <string name="list_student_empty_text">No hay alumnos todavía</string>
+    <string name="list_companies_empty_text">No hay empresas todavía</string>
+    <string name="list_visits_empty_text">No hay visitas todavía</string>
 </resources>

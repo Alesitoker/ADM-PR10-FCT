@@ -7,4 +7,5 @@
 
     <dimen name="activity_main_drawer_imgProfile_width">64dp</dimen>
     <dimen name="margin_fab">16dp</dimen>
+    <dimen name="student_item_lbl_margin">8dp</dimen>
 </resources>

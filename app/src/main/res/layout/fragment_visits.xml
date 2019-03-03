@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_visit_add_black_24dp"
-            android:text="No hay visitas todavía"
+            android:text="@string/list_visits_empty_text"
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

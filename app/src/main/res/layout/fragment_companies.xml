@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_company_add_black"
-            android:text="No hay empresas todavía"
+            android:text="@string/list_companies_empty_text"
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton

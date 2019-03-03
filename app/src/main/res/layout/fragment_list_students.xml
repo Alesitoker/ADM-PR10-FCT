@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:drawableTop="@drawable/ic_person_add_black_24dp"
-            android:text="No hay alumnos todavía"
+            android:text="@string/list_student_empty_text"
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
