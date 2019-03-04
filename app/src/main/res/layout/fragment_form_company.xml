@@ -1,117 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <!--TODO: Hacer bien-->
-    <!--TODO: Cambiar padding a un recurso-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtNameLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/txtNameLayout_hint"
-        >
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!--TODO: Cambiar padding a un recurso-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtCIFLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNameLayout"
-        android:hint="@string/txtCIFLayout_hint"
-        >
+    <data>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtCIF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!--TODO: Cambiar padding a un recurso-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtAddressLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtCIFLayout"
-        android:hint="@string/txtAddressLayout_hint"
-        >
+    </data>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!--TODO: Cambiar padding a un recurso-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPhoneLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtAddressLayout"
-        android:hint="@string/txtPhoneLayout_hint"
-        >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtPhone"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!--TODO: Cambiar padding a un recurso-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtLogoLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtPhoneLayout"
-        android:hint="@string/txtLogoLayout_hint"
-        >
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtLogo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <!--TODO: Cambiar padding a un recurso-->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtContactNameLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtLogoLayout"
-        android:hint="@string/txtContactNameLayout_hint"
-        >
+        <!--TODO: Hacer bien-->
+        <!--TODO: Cambiar padding and margin a un recurso-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtNameLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            android:hint="@string/txtNameLayout_hint">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtContactName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--TODO: Cambiar padding a un recurso-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtCIFLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNameLayout"
+            android:hint="@string/txtCIFLayout_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtCIF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--TODO: Cambiar padding a un recurso-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtAddressLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCIFLayout"
+            android:hint="@string/txtAddressLayout_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--TODO: Cambiar padding a un recurso-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtPhoneLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAddressLayout"
+            android:hint="@string/txtPhoneLayout_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="phone"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--TODO: Cambiar padding a un recurso-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtLogoLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtPhoneLayout"
+            android:hint="@string/txtLogoLayout_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtLogo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textUri"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--TODO: Cambiar padding a un recurso-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtContactNameLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLogoLayout"
+            android:hint="@string/txtContactNameLayout_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtContactName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

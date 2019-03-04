@@ -17,7 +17,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
@@ -40,13 +39,11 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
 
     private void setupViews() {
         drawerLayout = ActivityCompat.requireViewById(this, R.id.drawerLayout);
-        NavigationView navigationView = ActivityCompat.requireViewById(this, R.id.navigationView);
-        CircleImageView imgProfile = ViewCompat.requireViewById(navigationView.getHeaderView(0), R.id.imgProfile);
 
         appBarConfiguration =
                 new AppBarConfiguration.Builder(
-                        R.id.alumnosFragment, R.id.empresasFragment, R.id.proximasVisitasFragment,
-                        R.id.visitasFragment)
+                        R.id.studentsFragment, R.id.companiesFragment, R.id.nextVisitsFragment,
+                        R.id.visitsFragment)
                         .setDrawerLayout(drawerLayout)
                         .build();
 
@@ -95,6 +92,12 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }

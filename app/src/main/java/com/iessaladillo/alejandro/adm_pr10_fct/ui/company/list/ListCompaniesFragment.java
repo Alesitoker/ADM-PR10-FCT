@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -25,6 +27,7 @@ public class ListCompaniesFragment extends Fragment {
     private ToolbarConfigurationInterface toolbarConfiguration;
     private ListCompaniesFragmentViewModel viewModel;
     private ListCompaniesFragmentAdapter listAdapter;
+    private NavController navController;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -44,6 +47,7 @@ public class ListCompaniesFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, new ListCompaniesFragmentViewModelFactory(
                 new RepositoryImpl())).get(ListCompaniesFragmentViewModel.class);
+        navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();
         observeCompanies();
@@ -63,6 +67,9 @@ public class ListCompaniesFragment extends Fragment {
 
     private void setupViews() {
         setupRecyclerView();
+
+        b.fabAdd.setOnClickListener(v -> navigateToAddCompany());
+        b.lblEmptyView.setOnClickListener(v -> navigateToAddCompany());
     }
 
     private void setupRecyclerView() {
@@ -72,5 +79,9 @@ public class ListCompaniesFragment extends Fragment {
         b.lstCompany.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstCompany_columns)));
         b.lstCompany.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         b.lstCompany.setAdapter(listAdapter);
+    }
+
+    private void navigateToAddCompany() {
+        navController.navigate(R.id.actionCompaniesToFormCompany);
     }
 }

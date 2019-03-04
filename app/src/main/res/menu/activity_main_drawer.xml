@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/empresasFragment"
-        android:title="@string/EmpresasFragment_title"/>
+        android:id="@+id/companiesFragment"
+        android:title="@string/companiesFragment_title"/>
     <item
-        android:id="@+id/alumnosFragment"
-        android:title="@string/AlumnosFragment_title"/>
+        android:id="@+id/studentsFragment"
+        android:title="@string/studentsFragment_title"/>
     <item
-        android:id="@+id/visitasFragment"
-        android:title="@string/VisitasFragment_title"/>
+        android:id="@+id/visitsFragment"
+        android:title="@string/visitsFragment_title"/>
     <item
-        android:id="@+id/proximasVisitasFragment"
-        android:title="@string/ProximasVisitasFragment_title"/>
+        android:id="@+id/nextVisitsFragment"
+        android:title="@string/nextVisitsFragment_title"/>
 </menu>

@@ -3,25 +3,49 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/proximasVisitasFragment">
+    app:startDestination="@id/nextVisitsFragment">
     <fragment
-        android:id="@+id/proximasVisitasFragment"
+        android:id="@+id/nextVisitsFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.nextVisits.NextVisitsFragment"
-        android:label="@string/ProximasVisitasFragment_title"
+        android:label="@string/nextVisitsFragment_title"
         tools:layout="@layout/fragment_nextvisits" />
     <fragment
-        android:id="@+id/alumnosFragment"
+        android:id="@+id/studentsFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list.ListStudentsFragment"
-        android:label="@string/AlumnosFragment_title"
-        tools:layout="@layout/fragment_list_students" />
+        android:label="@string/studentsFragment_title"
+        tools:layout="@layout/fragment_list_students" >
+        <action
+            android:id="@+id/actionStudentsToFormStudent"
+            app:destination="@id/formStudentFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/empresasFragment"
+        android:id="@+id/companiesFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.company.list.ListCompaniesFragment"
-        android:label="@string/EmpresasFragment_title"
-        tools:layout="@layout/fragment_list_companies" />
+        android:label="@string/companiesFragment_title"
+        tools:layout="@layout/fragment_list_companies" >
+        <action
+            android:id="@+id/actionCompaniesToFormCompany"
+            app:destination="@id/formCompanyFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/visitasFragment"
+        android:id="@+id/visitsFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.list.ListVisitsFragment"
-        android:label="@string/VisitasFragment_title"
-        tools:layout="@layout/fragment_list_visits" />
+        android:label="@string/visitsFragment_title"
+        tools:layout="@layout/fragment_list_visits" >
+        <action
+            android:id="@+id/actionVisitsToFormVisit"
+            app:destination="@id/formVisitFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formStudentFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.form.FormStudentFragment"
+        android:label="@string/formStudentFragmenr_title" />
+    <fragment
+        android:id="@+id/formCompanyFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form.FormCompanyFragment"
+        android:label="@string/formCompanyFragment_title" />
+    <fragment
+        android:id="@+id/formVisitFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.form.FormVisitFragment"
+        android:label="@string/formVisitFragment_title" />
 </navigation>

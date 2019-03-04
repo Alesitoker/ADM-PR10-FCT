@@ -17,6 +17,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -26,6 +28,7 @@ public class ListStudentsFragment extends Fragment {
     private ToolbarConfigurationInterface toolbarConfiguration;
     private ListStudentsFragmentViewModel viewModel;
     private ListStudentsFragmentAdapter listAdapter;
+    private NavController navController;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -46,6 +49,7 @@ public class ListStudentsFragment extends Fragment {
         viewModel = ViewModelProviders.of(this,
                 new ListStudentsFragmentViewModelFactory(new RepositoryImpl())).
                 get(ListStudentsFragmentViewModel.class);
+        navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();
         observeStudents();
@@ -81,6 +85,6 @@ public class ListStudentsFragment extends Fragment {
     }
 
     private void navigateToAddStudent() {
-
+        navController.navigate(R.id.actionStudentsToFormStudent);
     }
 }

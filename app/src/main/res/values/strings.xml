@@ -1,10 +1,14 @@
 <resources>
-    <string name="app_name">ADM-PR10-FCT</string>
+    <string name="app_name">FCT</string>
 
-    <string name="ProximasVisitasFragment_title">Proximas visitas</string>
-    <string name="AlumnosFragment_title">Alumnos</string>
-    <string name="EmpresasFragment_title">Empresas</string>
-    <string name="VisitasFragment_title">Visitas</string>
+    <string name="nextVisitsFragment_title">Proximas visitas</string>
+    <string name="studentsFragment_title">Alumnos</string>
+    <string name="companiesFragment_title">Empresas</string>
+    <string name="visitsFragment_title">Visitas</string>
+    
+    <string name="formStudentFragmenr_title">Alumno</string>
+    <string name="formCompanyFragment_title">Empresa</string>
+    <string name="formVisitFragment_title">Visita</string>
 
     <string name="activity_main_header_lblUserName">User</string>
     <string name="activity_main_header_email">example@gmail.com</string>
@@ -30,4 +34,5 @@
     <string name="txtAddressLayout_hint">Direccion</string>
     <string name="txtLogoLayout_hint">Logo</string>
     <string name="txtContactNameLayout_hint">Nombre del contacto</string>
+
 </resources>

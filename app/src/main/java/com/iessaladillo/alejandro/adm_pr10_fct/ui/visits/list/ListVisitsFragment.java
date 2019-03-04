@@ -20,6 +20,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -29,6 +31,7 @@ public class ListVisitsFragment extends Fragment {
     private ToolbarConfigurationInterface toolbarConfiguration;
     private ListVisitsFragmentViewModel viewModel;
     private ListVisitsFragmentAdapter listAdapter;
+    private NavController navController;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -49,6 +52,7 @@ public class ListVisitsFragment extends Fragment {
         viewModel = ViewModelProviders.of(this,
                 new ListVisitsFragmentViewModelFactory(new RepositoryImpl())).
                 get(ListVisitsFragmentViewModel.class);
+        navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();
         observeVisits();
@@ -71,6 +75,9 @@ public class ListVisitsFragment extends Fragment {
 
     private void setupViews() {
         setupRecyclerView();
+
+        b.fabAdd.setOnClickListener(v -> navigateToAddVisit());
+        b.lblEmptyView.setOnClickListener(v -> navigateToAddVisit());
     }
 
     private void setupRecyclerView() {
@@ -80,6 +87,10 @@ public class ListVisitsFragment extends Fragment {
         b.lstVisits.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstVisit_columns)));
         b.lstVisits.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         b.lstVisits.setAdapter(listAdapter);
+    }
+
+    private void navigateToAddVisit() {
+        navController.navigate(R.id.actionVisitsToFormVisit);
     }
 
 }
