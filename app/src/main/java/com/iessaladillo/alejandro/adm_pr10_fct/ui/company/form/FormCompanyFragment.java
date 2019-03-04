@@ -1,4 +1,7 @@
 package com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form;
 
-public class FormCompanyFragment {
+import androidx.fragment.app.Fragment;
+
+public class FormCompanyFragment extends Fragment {
+
 }

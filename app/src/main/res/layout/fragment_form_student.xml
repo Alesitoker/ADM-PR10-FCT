@@ -5,15 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <!--TODO: Hacer bien-->
+    <!--TODO: Hacer bien, Mejorar formulario-->
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtNameLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="Nombre"
+        android:hint="@string/txtNameLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -21,14 +25,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtPhoneLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtNameLayout"
-        android:hint="Telefono"
+        android:hint="@string/txtPhoneLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -36,14 +43,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtEmailLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtPhoneLayout"
-        android:hint="Email"
+        android:hint="@string/txtEmailLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -51,14 +61,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtGradeLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtEmailLayout"
-        android:hint="Curso"
+        android:hint="@string/txtGradeLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -66,14 +79,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtCompanyLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtGradeLayout"
-        android:hint="Empresa"
+        android:hint="@string/txtCompanyLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -81,14 +97,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtNameTutorLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtCompanyLayout"
-        android:hint="Nombre del Tutor"
+        android:hint="@string/txtNameTutorLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -96,14 +115,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtPhoneTutorLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtNameTutorLayout"
-        android:hint="Telefono del tutor"
+        android:hint="@string/txtPhoneTutorLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -111,14 +133,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtScheduleLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtPhoneTutorLayout"
-        android:hint="Horario"
+        android:hint="@string/txtScheduleLayout_hint"
         >
 
         <com.google.android.material.textfield.TextInputEditText

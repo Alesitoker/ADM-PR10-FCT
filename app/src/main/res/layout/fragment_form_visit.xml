@@ -6,78 +6,90 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <!--TODO: Hacer bien-->
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtNameLayout"
+        android:id="@+id/txtDayLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:hint="@string/txtDayLayout_hint"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:hint="Dia"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtName"
+            android:id="@+id/txtDay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPhoneLayout"
+        android:id="@+id/txtStartTimeLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="@string/txtStartTimeLayout_hint"
+        app:layout_constraintEnd_toStartOf="@+id/txtEndTimeLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNameLayout"
-        android:hint="Hora de inicio"
-        >
+        app:layout_constraintTop_toBottomOf="@id/txtDayLayout"
+        app:layout_constraintHorizontal_bias="0.5">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtPhone"
+            android:id="@+id/txtStartTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtEmailLayout"
+        android:id="@+id/txtEndTimeLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="@string/txtEndTimeLayout_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtPhoneLayout"
-        android:hint="Hora de fin"
-        >
+        app:layout_constraintStart_toEndOf="@+id/txtStartTimeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/txtDayLayout"
+        app:layout_constraintHorizontal_bias="0.5">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtEmail"
+            android:id="@+id/txtEndTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtGradeLayout"
+        android:id="@+id/txtObservationsLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="@string/txtObservationsLayout_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtEmailLayout"
-        android:hint="Obseraciones"
-        >
+        app:layout_constraintTop_toBottomOf="@id/txtEndTimeLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtGrade"
+            android:id="@+id/txtObservations"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
+    <!--TODO: Cambiar padding a un recurso-->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtCompanyLayout"
+        android:id="@+id/txtStudentLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:hint="@string/txtStudentLayout_hint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtGradeLayout"
-        android:hint="Alumno"
-        >
+        app:layout_constraintTop_toBottomOf="@id/txtObservationsLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtCompany"
+            android:id="@+id/txtStudent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>

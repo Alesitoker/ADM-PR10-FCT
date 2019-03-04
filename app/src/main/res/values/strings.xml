@@ -13,4 +13,21 @@
     <string name="list_visits_empty_text">No hay visitas todavía</string>
     <string name="companies_item_img_dimensionRatio">1:1</string>
     <string name="visits_item_timeSeparator">-</string>
+    <string name="txtNameLayout_hint">Nombre</string>
+    <string name="txtPhoneLayout_hint">Telefono</string>
+    <string name="txtEmailLayout_hint">Email</string>
+    <string name="txtGradeLayout_hint">Curso</string>
+    <string name="txtCompanyLayout_hint">Empresa</string>
+    <string name="txtNameTutorLayout_hint">Nombre del Tutor</string>
+    <string name="txtPhoneTutorLayout_hint">Telefono del tutor</string>
+    <string name="txtScheduleLayout_hint">Horario</string>
+    <string name="txtDayLayout_hint">Dia</string>
+    <string name="txtStartTimeLayout_hint">Hora de inicio</string>
+    <string name="txtEndTimeLayout_hint">Hora de fin</string>
+    <string name="txtObservationsLayout_hint">Obseraciones</string>
+    <string name="txtStudentLayout_hint">Alumno</string>
+    <string name="txtCIFLayout_hint">CIF</string>
+    <string name="txtAddressLayout_hint">Direccion</string>
+    <string name="txtLogoLayout_hint">Logo</string>
+    <string name="txtContactNameLayout_hint">Nombre del contacto</string>
 </resources>
