@@ -16,12 +16,12 @@
         tools:layout="@layout/fragment_list_students" />
     <fragment
         android:id="@+id/empresasFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.company.ListCompaniesFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.company.list.ListCompaniesFragment"
         android:label="@string/EmpresasFragment_title"
         tools:layout="@layout/fragment_list_companies" />
     <fragment
         android:id="@+id/visitasFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.ListVisitsFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.list.ListVisitsFragment"
         android:label="@string/VisitasFragment_title"
         tools:layout="@layout/fragment_list_visits" />
 </navigation>

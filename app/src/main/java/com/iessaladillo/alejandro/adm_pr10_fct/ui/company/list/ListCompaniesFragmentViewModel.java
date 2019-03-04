@@ -1,4 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.company;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.company.list;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.data.Repository;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;

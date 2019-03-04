@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="Nombre"
+        android:hint="Dia"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -28,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtNameLayout"
-        android:hint="Telefono"
+        android:hint="Hora de inicio"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -43,7 +43,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtPhoneLayout"
-        android:hint="Email"
+        android:hint="Hora de fin"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -58,7 +58,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtEmailLayout"
-        android:hint="Curso"
+        android:hint="Obseraciones"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -73,56 +73,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txtGradeLayout"
-        android:hint="Empresa"
+        android:hint="Alumno"
         >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtCompany"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtNameTutorLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtCompanyLayout"
-        android:hint="Nombre del Tutor"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtNameTutor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtPhoneTutorLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNameTutorLayout"
-        android:hint="Telefono del tutor"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtPhoneTutor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txtScheduleLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtPhoneTutorLayout"
-        android:hint="Horario"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtSchedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>

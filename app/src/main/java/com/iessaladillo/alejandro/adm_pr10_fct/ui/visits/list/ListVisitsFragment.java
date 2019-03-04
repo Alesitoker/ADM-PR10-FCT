@@ -1,4 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.company;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.list;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -8,23 +8,27 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
-import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Visit;
+import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListVisitsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
+
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-public class ListCompaniesFragment extends Fragment {
+public class ListVisitsFragment extends Fragment {
 
-    private FragmentListCompaniesBinding b;
+    private FragmentListVisitsBinding b;
     private ToolbarConfigurationInterface toolbarConfiguration;
-    private ListCompaniesFragmentViewModel viewModel;
-    private ListCompaniesFragmentAdapter listAdapter;
+    private ListVisitsFragmentViewModel viewModel;
+    private ListVisitsFragmentAdapter listAdapter;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -35,24 +39,28 @@ public class ListCompaniesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        b = FragmentListCompaniesBinding.inflate(inflater, container, false);
+        b = FragmentListVisitsBinding.inflate(inflater, container, false);
         return b.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this, new ListCompaniesFragmentViewModelFactory(
-                new RepositoryImpl())).get(ListCompaniesFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this,
+                new ListVisitsFragmentViewModelFactory(new RepositoryImpl())).
+                get(ListVisitsFragmentViewModel.class);
         setupToolbar();
         setupViews();
-        observeCompanies();
+        observeVisits();
     }
 
-    private void observeCompanies() {
-        viewModel.getCompanies().observe(this, companies -> {
-            listAdapter.submitList(companies);
-            b.lblEmptyView.setVisibility(companies.size() == 0 ? View.VISIBLE : View.INVISIBLE);
+    private void observeVisits() {
+        viewModel.getVisits().observe(this, new Observer<List<Visit>>() {
+            @Override
+            public void onChanged(List<Visit> visits) {
+                listAdapter.submitList(visits);
+                b.lblEmptyView.setVisibility(visits.size() == 0 ? View.VISIBLE : View.INVISIBLE);
+            }
         });
     }
 
@@ -66,11 +74,12 @@ public class ListCompaniesFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        listAdapter = new ListCompaniesFragmentAdapter();
+        listAdapter = new ListVisitsFragmentAdapter();
 
-        b.lstCompany.setHasFixedSize(true);
-        b.lstCompany.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstCompany_columns)));
-        b.lstCompany.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
-        b.lstCompany.setAdapter(listAdapter);
+        b.lstVisits.setHasFixedSize(true);
+        b.lstVisits.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstVisit_columns)));
+        b.lstVisits.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
+        b.lstVisits.setAdapter(listAdapter);
     }
+
 }

@@ -1,11 +1,9 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.list;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
-import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Student;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Visit;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentVisitsItemBinding;
 
