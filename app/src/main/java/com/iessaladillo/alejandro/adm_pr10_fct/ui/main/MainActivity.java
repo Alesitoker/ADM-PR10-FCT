@@ -68,7 +68,8 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
 
         NavGraph navGraph = navInflater.inflate(R.navigation.main_navigation);
 
-        switch (settings.getString(getString(R.string.prefStartingScreen_key), getString(R.string.prefStartingScreen_defaultValue))) {
+        switch (settings.getString(getString(R.string.prefStartingScreen_key),
+                getString(R.string.prefStartingScreen_defaultValue))) {
             case "nextVisits":
                 startDestinationResId = R.id.nextVisitsFragment;
                 break;
