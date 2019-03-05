@@ -40,16 +40,16 @@
     <string name="prefStartingScreen_title">Pantalla principal</string>
     <string name="prefStartingScreen_key" translatable="false">prefStartingScreen</string>
     <string-array name="prefStartingScreen_entryValues" translatable="false">
-        <item>nextVisits</item>
-        <item>students</item>
         <item>companies</item>
+        <item>students</item>
         <item>visits</item>
+        <item>nextVisits</item>
     </string-array>
     <string-array name="prefStartingScreen_entries" translatable="false">
-        <item>Próximas visitas</item>
-        <item>Alumnos</item>
         <item>Empresas</item>
+        <item>Alumnos</item>
         <item>Visitas</item>
+        <item>Próximas visitas</item>
     </string-array>
 
     <string name="prefDaysVisits_key">prefDaysVisits</string>
