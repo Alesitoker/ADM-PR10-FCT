@@ -2,9 +2,13 @@ package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.form;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormVisitBinding;
 
@@ -25,6 +29,12 @@ public class FormVisitFragment extends Fragment {
     private FragmentFormVisitBinding b;
     private FormVisitFragmentViewModel viewModel;
     private NavController navController;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+    }
 
     @Nullable
     @Override
@@ -52,6 +62,25 @@ public class FormVisitFragment extends Fragment {
     }
 
     private void setupViews() {
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_form_visit, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.mnuSave) {
+            save();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void save() {
 
     }
 }

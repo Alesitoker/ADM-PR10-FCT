@@ -35,6 +35,7 @@
     <string name="txtAddressLayout_hint">Direccion</string>
     <string name="txtLogoLayout_hint">Logo</string>
     <string name="txtContactNameLayout_hint">Nombre del contacto</string>
+    <string name="form_save">Save</string>
     <!--preferences-->
     <string name="prefStartingScreen_defaultValue" translatable="false">nextVisits</string>
     <string name="prefStartingScreen_title">Pantalla principal</string>

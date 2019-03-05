@@ -30,21 +30,18 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
     private DrawerLayout drawerLayout;
     private static final String PREFERENCES_FILE = "prefs";
     private static final String PREF_NAV_DRAWER_OPENED = "navdrawerOpened";
-    private SharedPreferences.OnSharedPreferenceChangeListener onSharePreferencesChangeListener;
     private SharedPreferences settings;
 
     @Override
     protected void onResume() {
         super.onResume();
-        settings.registerOnSharedPreferenceChangeListener(onSharePreferencesChangeListener);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        settings.registerOnSharedPreferenceChangeListener(onSharePreferencesChangeListener);
     }
-
+    // TODO: Al ir a configuraciones vuelve a la pagina por inicial
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
