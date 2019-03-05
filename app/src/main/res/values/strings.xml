@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">FCT</string>
 
-    <string name="nextVisitsFragment_title">Proximas visitas</string>
+    <string name="nextVisitsFragment_title">Próximas visitas</string>
     <string name="studentsFragment_title">Alumnos</string>
     <string name="companiesFragment_title">Empresas</string>
     <string name="visitsFragment_title">Visitas</string>
-    
+    <string name="settingsFragment_title">Configuración</string>
+
     <string name="formStudentFragmenr_title">Alumno</string>
     <string name="formCompanyFragment_title">Empresa</string>
     <string name="formVisitFragment_title">Visita</string>
@@ -34,5 +35,25 @@
     <string name="txtAddressLayout_hint">Direccion</string>
     <string name="txtLogoLayout_hint">Logo</string>
     <string name="txtContactNameLayout_hint">Nombre del contacto</string>
+    <!--preferences-->
+    <string name="prefStartingScreen_defaultValue" translatable="false">nextVisits</string>
+    <string name="prefStartingScreen_title">Pantalla principal</string>
+    <string name="prefStartingScreen_key" translatable="false">prefStartingScreen</string>
+    <string-array name="prefStartingScreen_entryValues" translatable="false">
+        <item>nextVisits</item>
+        <item>students</item>
+        <item>companies</item>
+        <item>visits</item>
+    </string-array>
+    <string-array name="prefStartingScreen_entries" translatable="false">
+        <item>Próximas visitas</item>
+        <item>Alumnos</item>
+        <item>Empresas</item>
+        <item>Visitas</item>
+    </string-array>
+
+    <string name="prefDaysVisits_key">prefDaysVisits</string>
+    <string name="prefDaysVisits_title">Dias entre visitas</string>
+    <string name="prefinfo_title">Acerca de</string>
 
 </resources>

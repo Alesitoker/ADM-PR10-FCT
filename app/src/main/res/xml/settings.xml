@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ListPreference
+        android:defaultValue="@string/prefStartingScreen_defaultValue"
+        android:dialogTitle="@string/prefStartingScreen_title"
+        android:entries="@array/prefStartingScreen_entries"
+        android:entryValues="@array/prefStartingScreen_entryValues"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:key="@string/prefStartingScreen_key"
+        app:useSimpleSummaryProvider="true"
+        android:title="@string/prefStartingScreen_title"
+        />
+    <SeekBarPreference
+        android:defaultValue="@integer/prefDaysVisits_defaultValue"
+        app:seekBarIncrement="@integer/prefDaysVisits_seekBarIncrement"
+        app:adjustable="true"
+        app:showSeekBarValue="true"
+        android:icon="@drawable/ic_today_black_24dp"
+        android:key="@string/prefDaysVisits_key"
+        app:min="@integer/prefDaysVisits_min"
+        android:max="@integer/prefDaysVisits_max"
+        android:title="@string/prefDaysVisits_title"
+        />
+    <!--TODO: Abrir actividad con informacion-->
+    <Preference
+        android:persistent="false"
+        android:icon="@drawable/ic_info_black_24dp"
+        android:title="@string/prefinfo_title">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://www.iessaladillo.es"/>
+    </Preference>
+</PreferenceScreen>

@@ -5,13 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -53,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
         NavigationView navigationView =
                 ActivityCompat.requireViewById(this, R.id.navigationView);
         NavigationUI.setupWithNavController(navigationView, navController);
+
         if (!readPreference()) {
             drawerLayout.openDrawer(GravityCompat.START);
             savePreference();

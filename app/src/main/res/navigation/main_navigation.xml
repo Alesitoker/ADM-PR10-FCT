@@ -48,4 +48,8 @@
         android:id="@+id/formVisitFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.form.FormVisitFragment"
         android:label="@string/formVisitFragment_title" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.settings.SettingsFragment"
+        android:label="@string/settingsFragment_title" />
 </navigation>
