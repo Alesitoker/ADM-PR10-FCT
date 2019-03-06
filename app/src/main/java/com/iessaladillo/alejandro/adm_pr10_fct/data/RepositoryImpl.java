@@ -9,7 +9,7 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 
 public class RepositoryImpl implements Repository {
-    
+
     @Override
     public LiveData<List<Student>> queryStudents() {
         return null;

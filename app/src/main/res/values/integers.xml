@@ -3,6 +3,7 @@
     <integer name="lstStudent_columns">1</integer>
     <integer name="lstCompany_columns">1</integer>
     <integer name="lstVisit_columns">1</integer>
+    <integer name="txtObservations_maxLines">10</integer>
     <!--preference-->
     <integer name="prefDaysVisits_defaultValue">15</integer>
     <integer name="prefDaysVisits_seekBarIncrement">5</integer>

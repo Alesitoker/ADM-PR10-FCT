@@ -1,5 +1,8 @@
 package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 
+import androidx.room.Entity;
+
+@Entity
 public class Company {
     private long id;
     private String name;

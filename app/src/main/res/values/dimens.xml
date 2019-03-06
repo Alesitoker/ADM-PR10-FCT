@@ -4,11 +4,17 @@
     <dimen name="activity_main_drawer_rlDrawerHeaderRoot_padding">16dp</dimen>
     <dimen name="activity_main_drawer_rlDrawerHeaderRoot_height">178dp</dimen>
     <dimen name="navigation_drawer_header_profile_marginTop">16dp</dimen>
-
+    <!-- -->
     <dimen name="activity_main_drawer_imgProfile_width">64dp</dimen>
     <dimen name="margin_fab">16dp</dimen>
     <dimen name="student_item_lbl_margin">8dp</dimen>
     <dimen name="companies_item_marginStart">8dp</dimen>
     <dimen name="companies_item_paddingBottom">8dp</dimen>
     <dimen name="companies_item_img_margin">12dp</dimen>
+    <dimen name="fragment_form_student_txtLayout_marginTop">16dp</dimen>
+    <dimen name="fragment_form_student_padding">16dp</dimen>
+    <dimen name="fragment_form_company_txtLayout_marginTop">16dp</dimen>
+    <dimen name="fragment_form_company_padding">16dp</dimen>
+    <dimen name="fragment_form_visit_txtLayout_marginTop">16dp</dimen>
+    <dimen name="fragment_form_visit_padding">16dp</dimen>
 </resources>

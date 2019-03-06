@@ -23,13 +23,12 @@
         android:max="@integer/prefDaysVisits_max"
         android:title="@string/prefDaysVisits_title"
         />
-    <!--TODO: Abrir actividad con informacion-->
+    <!--TODO: Abrir actividad con informacion o fragmento mirar como-->
     <Preference
         android:persistent="false"
         android:icon="@drawable/ic_info_black_24dp"
-        android:title="@string/prefinfo_title">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="http://www.iessaladillo.es"/>
-    </Preference>
+        android:key="@string/prefInfo_key"
+        android:title="@string/prefInfo_title"
+        android:fragment="com.iessaladillo.alejandro.adm_pr10_fct.ui.about.AboutMeFragment"
+        />
 </PreferenceScreen>

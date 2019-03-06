@@ -25,15 +25,14 @@
             />
 
         <!--TODO: Hacer bien-->
-        <!--TODO: Cambiar padding y margin a un recurso-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtDayLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="@string/txtDayLayout_hint"
-            android:layout_marginTop="16dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:layout_marginTop="@dimen/fragment_form_visit_txtLayout_marginTop"
+            android:paddingStart="@dimen/fragment_form_visit_padding"
+            android:paddingEnd="@dimen/fragment_form_visit_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -46,13 +45,12 @@
                 android:imeOptions="actionNext"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <!--TODO: Cambiar padding a un recurso-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtStartTimeLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="@dimen/fragment_form_visit_padding"
+            android:paddingEnd="@dimen/fragment_form_visit_padding"
             android:hint="@string/txtStartTimeLayout_hint"
             app:layout_constraintEnd_toStartOf="@+id/txtEndTimeLayout"
             app:layout_constraintStart_toStartOf="parent"
@@ -67,13 +65,12 @@
                 android:imeOptions="actionNext"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <!--TODO: Cambiar padding a un recurso-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtEndTimeLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="@dimen/fragment_form_visit_padding"
+            android:paddingEnd="@dimen/fragment_form_visit_padding"
             android:hint="@string/txtEndTimeLayout_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/txtStartTimeLayout"
@@ -88,42 +85,40 @@
                 android:imeOptions="actionNext"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <!--TODO: Cambiar padding a un recurso-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/txtObservationsLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:hint="@string/txtObservationsLayout_hint"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtEndTimeLayout">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtObservations"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:maxLines="10"
-                />
-        </com.google.android.material.textfield.TextInputLayout>
-        <!--TODO: Cambiar padding a un recurso-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtStudentLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
+            android:paddingStart="@dimen/fragment_form_visit_padding"
+            android:paddingEnd="@dimen/fragment_form_visit_padding"
             android:hint="@string/txtStudentLayout_hint"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtObservationsLayout">
+            app:layout_constraintTop_toBottomOf="@+id/txtEndTimeLayout">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtStudent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="false"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtObservationsLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/fragment_form_visit_padding"
+            android:paddingEnd="@dimen/fragment_form_visit_padding"
+            android:hint="@string/txtObservationsLayout_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtStudentLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtObservations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="@integer/txtObservations_maxLines"
                 />
         </com.google.android.material.textfield.TextInputLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

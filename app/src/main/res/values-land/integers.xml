@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="lstStudent_columns">2</integer>
+    <integer name="lstCompany_columns">2</integer>
+    <integer name="lstVisit_columns">2</integer>
+
+    <integer name="txtObservations_maxLines">4</integer>
+</resources>

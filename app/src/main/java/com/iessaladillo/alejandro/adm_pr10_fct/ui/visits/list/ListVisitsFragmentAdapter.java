@@ -23,7 +23,7 @@ public class ListVisitsFragmentAdapter extends ListAdapter<Visit, ListVisitsFrag
 
             @Override
             public boolean areContentsTheSame(@NonNull Visit oldItem, @NonNull Visit newItem) {
-                return TextUtils.equals(oldItem.getDay(), newItem.getDay()) &&
+                return TextUtils.equals(oldItem.getDate(), newItem.getDate()) &&
                         TextUtils.equals(oldItem.getStartTime(), newItem.getStartTime()) &&
                         TextUtils.equals(oldItem.getEndTime(), newItem.getEndTime());
             }
@@ -63,7 +63,7 @@ public class ListVisitsFragmentAdapter extends ListAdapter<Visit, ListVisitsFrag
         }
 
         public void bind(Visit visit) {
-            b.lblDay.setText(visit.getDay());
+            b.lblDay.setText(visit.getDate());
             b.lblStartTime.setText(visit.getStartTime());
             b.lblEndTime.setText(visit.getEndTime());
             b.lblStudentName.setText(visit.getStudentName());

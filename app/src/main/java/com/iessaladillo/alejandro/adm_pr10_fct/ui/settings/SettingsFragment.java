@@ -29,6 +29,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         super.onActivityCreated(savedInstanceState);
         navController = NavHostFragment.findNavController(this);
         setupToolbar(requireView());
+
     }
 
     private void setupToolbar(View view) {

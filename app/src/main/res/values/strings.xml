@@ -36,6 +36,14 @@
     <string name="txtLogoLayout_hint">Logo</string>
     <string name="txtContactNameLayout_hint">Nombre del contacto</string>
     <string name="form_save">Save</string>
+
+    <string name="aboutMe_title">FCT APP</string>
+    <string name="aboutMe_text_version">Version 1.0</string>
+    <string name="aboutMe_aboutApp">Esta es una aplicacion para gestionar las visitas de a los alumnos que estan realizando la FCT</string>
+    <string name="aboutMe_lblAboutMe">Acerca de mi</string>
+    <string name="aboutMe_lblPhonenumber">672356782</string>
+    <string name="aboutMe_lblFacebook">Fanstatian</string>
+    <string name="abourMe_lblTwitter">\@Hagundurt</string>
     <!--preferences-->
     <string name="prefStartingScreen_defaultValue" translatable="false">nextVisits</string>
     <string name="prefStartingScreen_title">Pantalla principal</string>
@@ -55,6 +63,7 @@
 
     <string name="prefDaysVisits_key">prefDaysVisits</string>
     <string name="prefDaysVisits_title">Dias entre visitas</string>
-    <string name="prefinfo_title">Acerca de</string>
 
+    <string name="prefInfo_title">Acerca de</string>
+    <string name="prefInfo_key">prefInfo</string>
 </resources>

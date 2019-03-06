@@ -2,16 +2,16 @@ package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 
 public class Visit {
     long id;
-    String day;
+    String date;
     String startTime;
     String endTime;
     String observations;
     long studentId;
     String studentName;
 
-    public Visit(long id, String day, String startTime, String endTime, String observations, long studentId, String studentName) {
+    public Visit(long id, String date, String startTime, String endTime, String observations, long studentId, String studentName) {
         this.id = id;
-        this.day = day;
+        this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.observations = observations;
@@ -23,8 +23,8 @@ public class Visit {
         return id;
     }
 
-    public String getDay() {
-        return day;
+    public String getDate() {
+        return date;
     }
 
     public String getStartTime() {
