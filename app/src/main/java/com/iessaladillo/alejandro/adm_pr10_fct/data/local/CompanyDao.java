@@ -10,7 +10,7 @@ import androidx.room.Dao;
 import androidx.room.Query;
 
 @Dao
-public interface CompanyDao extends BaseDao {
+public interface CompanyDao extends BaseDao<Company> {
 
     @Query("SELECT * FROM company WHERE id = :companyId")
     LiveData<Company> queryCompani(long companyId);

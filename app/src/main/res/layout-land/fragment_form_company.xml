@@ -87,6 +87,26 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/txtEmailLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/txtEmailLayout_hint"
+            android:paddingStart="@dimen/fragment_form_company_padding"
+            android:paddingEnd="@dimen/fragment_form_company_padding"
+            app:layout_constraintEnd_toStartOf="@+id/txtPhoneLayout"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtAddressLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtPhoneLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -94,7 +114,8 @@
             android:paddingStart="@dimen/fragment_form_company_padding"
             android:paddingEnd="@dimen/fragment_form_company_padding"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtEmailLayout"
             app:layout_constraintTop_toBottomOf="@+id/txtAddressLayout">
 
             <com.google.android.material.textfield.TextInputEditText

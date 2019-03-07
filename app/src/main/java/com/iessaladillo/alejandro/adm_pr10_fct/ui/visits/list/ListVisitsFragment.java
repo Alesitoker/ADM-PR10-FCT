@@ -37,7 +37,11 @@ public class ListVisitsFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        toolbarConfiguration = (ToolbarConfigurationInterface) context;
+        try {
+            toolbarConfiguration = (ToolbarConfigurationInterface) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException("Listener must implement ToolbarConfigurationInterface");
+        }
     }
 
     @Nullable

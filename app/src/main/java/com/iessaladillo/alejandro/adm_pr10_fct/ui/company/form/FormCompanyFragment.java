@@ -8,9 +8,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
+import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormCompanyBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,6 +54,17 @@ public class FormCompanyFragment extends Fragment {
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();
+        observe();
+    }
+
+    private void observe() {
+        viewModel.getSuccessMessage().observe(this, new EventObserver<>(message -> showMessage()));
+        viewModel.getErrorMessage().observe(this, new EventObserver<>(message -> showMessage()));
+    }
+
+    private void showMessage() {
+        // TODO: Preguntar cual es mejor.
+        navController.navigateUp();
     }
 
     private void setupToolbar() {
@@ -78,8 +93,106 @@ public class FormCompanyFragment extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    // TODO: crear un objeto dependiendo de si voy a actualizar o insertar
     private void save() {
+        String name, cif, address, email, logo, contactName;
+        int id = 0, phone;
 
+        if (checkFields()) {
+            name = b.txtName.getText().toString();
+            cif = b.txtCIF.getText().toString();
+            address = b.txtAddress.getText().toString();
+            phone = Integer.parseInt(b.txtPhone.getText().toString());
+            email = b.txtEmail.getText().toString();
+            logo = b.txtLogo.getText().toString();
+            contactName = b.txtContactName.getText().toString();
+
+//            viewModel.insertCompany(new Company(id, name, cif, address, phone, email, logo, contactName));
+        }
     }
+
+    private boolean checkFields() {
+        boolean validName, validCIF, validAddress, validPhone, validEmail, validLogo;
+        validName = checkName();
+        validCIF = checkCIF();
+        validAddress = checkAddress();
+        validPhone = checkPhone();
+        validEmail = checkEmail();
+        validLogo = checkUrlLogo();
+        return validName && validCIF && validAddress && validPhone && validEmail && validLogo;
+    }
+
+    private boolean checkName() {
+        boolean valid;
+        if (!b.txtName.getText().toString().isEmpty()) {
+            b.txtNameLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtNameLayout.setError("El campo nombre es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkCIF() {
+        boolean valid;
+        if (!b.txtCIF.getText().toString().isEmpty()) {
+            b.txtCIFLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtCIFLayout.setError("El campo CIF es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkAddress() {
+        boolean valid;
+        if (!b.txtAddress.getText().toString().isEmpty()) {
+            b.txtAddressLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtAddressLayout.setError("El campo direccion es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkPhone() {
+        boolean valid;
+        if (!b.txtPhone.getText().toString().isEmpty() &&
+                ValidationUtils.isValidPhone(b.txtPhone.getText().toString())) {
+            b.txtPhoneLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtPhoneLayout.setError("El campo telefono es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkEmail() {
+        boolean valid;
+        if (ValidationUtils.isValidEmail(b.txtEmail.getText().toString())) {
+            b.txtEmailLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtEmailLayout.setError("El email no es valido");
+            valid = true;
+        }
+        return valid;
+    }
+
+    private boolean checkUrlLogo() {
+        boolean valid;
+        if (ValidationUtils.isValidUrl(b.txtLogo.getText().toString())) {
+            b.txtLogoLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtLogoLayout.setError("La url no es valida");
+            valid = false;
+        }
+        return valid;
+    }
+
 }

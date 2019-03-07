@@ -34,7 +34,7 @@
     <string name="txtStudentLayout_hint">Alumno</string>
     <string name="txtCIFLayout_hint">CIF</string>
     <string name="txtAddressLayout_hint">Direccion</string>
-    <string name="txtLogoLayout_hint">Logo</string>
+    <string name="txtLogoLayout_hint">Url del logo</string>
     <string name="txtContactNameLayout_hint">Nombre del contacto</string>
     <string name="form_save">Save</string>
 

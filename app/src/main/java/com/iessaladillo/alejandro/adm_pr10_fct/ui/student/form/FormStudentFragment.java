@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
+import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormStudentBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -50,6 +52,16 @@ public class FormStudentFragment extends Fragment {
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();
+        observe();
+    }
+
+    private void observe() {
+        viewModel.getSuccessMessage().observe(this, new EventObserver<>(message -> showMessage()));
+        viewModel.getErrorMessage().observe(this, new EventObserver<>(message -> showMessage()));
+    }
+
+    private void showMessage() {
+        navController.navigateUp();
     }
 
     private void setupToolbar() {
@@ -81,5 +93,92 @@ public class FormStudentFragment extends Fragment {
 
     private void save() {
 
+        if (checkFields()) {
+
+        }
+    }
+
+    private boolean checkFields() {
+        boolean validName, validPhone, validEmail, validTutorName, validTutorPhone;
+        validName = checkName();
+        validPhone = checkPhone();
+        validEmail = checkEmail();
+        validTutorName = checkTutorName();
+        validTutorPhone = checkTutorPhone();
+        return validName && validPhone && validEmail && validTutorName && validTutorPhone;
+    }
+
+    private boolean checkName() {
+        boolean valid;
+        if (!b.txtName.getText().toString().isEmpty()) {
+            b.txtNameLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtNameLayout.setError("El campo nombre es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkPhone() {
+        boolean valid;
+        if (!b.txtPhone.getText().toString().isEmpty() &&
+                ValidationUtils.isValidPhone(b.txtPhone.getText().toString())) {
+            b.txtPhoneLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtPhoneLayout.setError("El campo telefono es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkEmail() {
+        boolean valid;
+        if (ValidationUtils.isValidEmail(b.txtEmail.getText().toString())) {
+            b.txtEmailLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtEmailLayout.setError("El email no es valido");
+            valid = true;
+        }
+        return valid;
+    }
+
+    private boolean checkTutorName() {
+        boolean valid;
+        if (ValidationUtils.isValidUrl(b.txtNameTutor.getText().toString())) {
+            b.txtNameTutorLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtNameTutorLayout.setError("La url no es valida");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkTutorPhone() {
+        boolean valid;
+        if (ValidationUtils.isValidUrl(b.txtPhoneTutor.getText().toString()) &&
+                ValidationUtils.isValidPhone(b.txtPhone.getText().toString())) {
+            b.txtPhoneTutorLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtPhoneTutorLayout.setError("La url no es valida");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkCompany() {
+        boolean valid;
+        if (ValidationUtils.isValidUrl(b.txtCompany.getText().toString())) {
+            b.txtCompanyLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtCompanyLayout.setError("La url no es valida");
+            valid = false;
+        }
+        return valid;
     }
 }

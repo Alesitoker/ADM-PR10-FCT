@@ -9,8 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
+import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormVisitBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,6 +53,16 @@ public class FormVisitFragment extends Fragment {
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();
+        observe();
+    }
+
+    private void observe() {
+        viewModel.getSuccessMessage().observe(this, new EventObserver<>(message -> showMessage()));
+        viewModel.getErrorMessage().observe(this, new EventObserver<>(message -> showMessage()));
+    }
+
+    private void showMessage() {
+        navController.navigateUp();
     }
 
     private void setupToolbar() {
@@ -81,6 +93,66 @@ public class FormVisitFragment extends Fragment {
     }
 
     private void save() {
+        if (checkFields()) {
 
+        }
     }
+
+    private boolean checkFields() {
+        boolean validName, validStartTime, validEndTime, validStudent;
+        validName = checkName();
+        validStartTime = checkStartTime();
+        validEndTime = checkEndTime();
+        validStudent = checkStudent();
+        return validName && validStartTime && validEndTime && validStudent;
+    }
+
+    private boolean checkName() {
+        boolean valid;
+        if (!b.txtDay.getText().toString().isEmpty()) {
+            b.txtDayLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtDayLayout.setError("El campo nombre es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkStartTime() {
+        boolean valid;
+        if (!b.txtStartTime.getText().toString().isEmpty()) {
+            b.txtStartTimeLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtStartTimeLayout.setError("El campo telefono es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkEndTime() {
+        boolean valid;
+        if (!b.txtEndTime.getText().toString().isEmpty()) {
+            b.txtEndTimeLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtEndTimeLayout.setError("El campo telefono es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
+    private boolean checkStudent() {
+        boolean valid;
+        if (!b.txtStudent.getText().toString().isEmpty()) {
+            b.txtStudentLayout.setErrorEnabled(false);
+            valid = true;
+        } else {
+            b.txtStudentLayout.setError("El campo telefono es requerido");
+            valid = false;
+        }
+        return valid;
+    }
+
 }

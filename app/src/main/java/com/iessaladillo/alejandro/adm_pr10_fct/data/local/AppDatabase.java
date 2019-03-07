@@ -2,12 +2,18 @@ package com.iessaladillo.alejandro.adm_pr10_fct.data.local;
 
 import android.content.Context;
 
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Student;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Visit;
+
+import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+//@Database(entities = {Student.class, Company.class, Visit.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
  
-    private static final String DATABASE_NAME = "database-name";
+    private static final String DATABASE_NAME = "fct-database";
  
     public abstract StudentDao studentDao();
     public abstract CompanyDao companyDao();
