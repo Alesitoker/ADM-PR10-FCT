@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Visit;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.VisitStudent;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentVisitsItemBinding;
 
 import androidx.annotation.NonNull;
@@ -12,18 +12,18 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class ListVisitsFragmentAdapter extends ListAdapter<Visit, ListVisitsFragmentAdapter.ViewHolder> {
+public class ListVisitsFragmentAdapter extends ListAdapter<VisitStudent, ListVisitsFragmentAdapter.ViewHolder> {
 
     protected ListVisitsFragmentAdapter() {
-        super(new DiffUtil.ItemCallback<Visit>() {
+        super(new DiffUtil.ItemCallback<VisitStudent>() {
             @Override
-            public boolean areItemsTheSame(@NonNull Visit oldItem, @NonNull Visit newItem) {
+            public boolean areItemsTheSame(@NonNull VisitStudent oldItem, @NonNull VisitStudent newItem) {
                 return oldItem.getId() == newItem.getId();
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull Visit oldItem, @NonNull Visit newItem) {
-                return TextUtils.equals(oldItem.getDate(), newItem.getDate()) &&
+            public boolean areContentsTheSame(@NonNull VisitStudent oldItem, @NonNull VisitStudent newItem) {
+                return TextUtils.equals(oldItem.getDay(), newItem.getDay()) &&
                         TextUtils.equals(oldItem.getStartTime(), newItem.getStartTime()) &&
                         TextUtils.equals(oldItem.getEndTime(), newItem.getEndTime());
             }
@@ -49,7 +49,7 @@ public class ListVisitsFragmentAdapter extends ListAdapter<Visit, ListVisitsFrag
     }
 
     @Override
-    protected Visit getItem(int position) {
+    protected VisitStudent getItem(int position) {
         return super.getItem(position);
     }
 
@@ -62,11 +62,11 @@ public class ListVisitsFragmentAdapter extends ListAdapter<Visit, ListVisitsFrag
             this.b = b;
         }
 
-        public void bind(Visit visit) {
-            b.lblDay.setText(visit.getDate());
+        public void bind(VisitStudent visit) {
+            b.lblDay.setText(visit.getDay());
             b.lblStartTime.setText(visit.getStartTime());
             b.lblEndTime.setText(visit.getEndTime());
-//            b.lblStudentName.setText(visit.getStudentName());
+            b.lblStudentName.setText(visit.getStudentName());
         }
     }
 }

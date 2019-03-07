@@ -6,7 +6,7 @@
     <data>
 
     </data>
-
+    <!--TODO: cambiar a recursos los padding y margin-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/CLayout"
         android:layout_width="match_parent"
@@ -17,8 +17,8 @@
             android:id="@+id/lblStudentName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:padding="8dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/full_names" />
@@ -27,7 +27,7 @@
             android:id="@+id/lblDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:padding="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/lblStudentName"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,7 +37,8 @@
             android:id="@+id/lblStartTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/lblTimeSeparator"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/lblDay"
             app:layout_constraintTop_toBottomOf="@+id/lblDay"
             tools:text="12:00" />
 
@@ -45,15 +46,17 @@
             android:id="@+id/lblTimeSeparator"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="8dp"
             android:text="@string/visits_item_timeSeparator"
-            app:layout_constraintStart_toEndOf="@+id/lblEndTime"
+            app:layout_constraintStart_toEndOf="@+id/lblStartTime"
             app:layout_constraintTop_toBottomOf="@+id/lblDay" />
 
         <TextView
             android:id="@+id/lblEndTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/lblDay"
+            android:padding="8dp"
+            app:layout_constraintStart_toEndOf="@+id/lblTimeSeparator"
             app:layout_constraintTop_toBottomOf="@+id/lblDay"
             tools:text="12:30" />
 

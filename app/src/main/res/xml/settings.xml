@@ -23,7 +23,7 @@
         android:max="@integer/prefDaysVisits_max"
         android:title="@string/prefDaysVisits_title"
         />
-    <!--TODO: Abrir actividad con informacion o fragmento mirar como-->
+
     <Preference
         android:persistent="false"
         android:icon="@drawable/ic_info_black_24dp"

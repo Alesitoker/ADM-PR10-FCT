@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
                         R.id.visitsFragment)
                         .setDrawerLayout(drawerLayout)
                         .build();
-
     }
 
     private void setupNavigationDrawer() {

@@ -1,20 +1,9 @@
 package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 
 import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import static androidx.room.ForeignKey.CASCADE;
-import static androidx.room.ForeignKey.RESTRICT;
-
-@Entity(foreignKeys = @ForeignKey(entity = Student.class,
-        parentColumns = "id",
-        childColumns = "studentId",
-        onDelete = RESTRICT,
-        onUpdate = CASCADE
-))
-public class Visit {
+public class VisitStudent {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     private long id;
@@ -28,15 +17,16 @@ public class Visit {
     private String observations;
     @ColumnInfo(name = "studentId")
     private long studentId;
+    private String studentName;
 
-
-    public Visit(long id, String day, String startTime, String endTime, String observations, long studentId) {
+    public VisitStudent(long id, String day, String startTime, String endTime, String observations, long studentId, String studentName) {
         this.id = id;
         this.day = day;
         this.startTime = startTime;
         this.endTime = endTime;
         this.observations = observations;
         this.studentId = studentId;
+        this.studentName = studentName;
     }
 
     public long getId() {
@@ -57,5 +47,13 @@ public class Visit {
 
     public String getObservations() {
         return observations;
+    }
+
+    public long getStudentId() {
+        return studentId;
+    }
+
+    public String getStudentName() {
+        return studentName;
     }
 }

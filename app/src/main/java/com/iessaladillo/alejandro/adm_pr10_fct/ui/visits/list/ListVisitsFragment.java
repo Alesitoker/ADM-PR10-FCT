@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Visit;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.VisitStudent;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListVisitsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
 
@@ -59,12 +60,9 @@ public class ListVisitsFragment extends Fragment {
     }
 
     private void observeVisits() {
-        viewModel.getVisits().observe(this, new Observer<List<Visit>>() {
-            @Override
-            public void onChanged(List<Visit> visits) {
-                listAdapter.submitList(visits);
-                b.lblEmptyView.setVisibility(visits.size() == 0 ? View.VISIBLE : View.INVISIBLE);
-            }
+        viewModel.getVisits().observe(this, visits -> {
+            listAdapter.submitList(visits);
+            b.lblEmptyView.setVisibility(visits.size() == 0 ? View.VISIBLE : View.INVISIBLE);
         });
     }
 
