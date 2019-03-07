@@ -66,7 +66,7 @@ public class ListVisitsFragmentAdapter extends ListAdapter<Visit, ListVisitsFrag
             b.lblDay.setText(visit.getDate());
             b.lblStartTime.setText(visit.getStartTime());
             b.lblEndTime.setText(visit.getEndTime());
-            b.lblStudentName.setText(visit.getStudentName());
+//            b.lblStudentName.setText(visit.getStudentName());
         }
     }
 }

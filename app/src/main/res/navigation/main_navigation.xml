@@ -52,4 +52,5 @@
         android:id="@+id/settingsFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.settings.SettingsFragment"
         android:label="@string/settingsFragment_title" />
+
 </navigation>

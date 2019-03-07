@@ -26,7 +26,7 @@ public class ListStudentsFragmentAdapter extends ListAdapter<Student, ListStuden
                 return TextUtils.equals(oldItem.getName(), newItem.getName()) &&
                         oldItem.getPhone() == newItem.getPhone() &&
                         TextUtils.equals(oldItem.getEmail(), newItem.getEmail()) &&
-                        TextUtils.equals(oldItem.getCompany(), newItem.getCompany()) &&
+//                        TextUtils.equals(oldItem.getCompany(), newItem.getCompany()) &&
                         TextUtils.equals(oldItem.getSchedule(), newItem.getSchedule());
             }
         });

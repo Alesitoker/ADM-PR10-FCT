@@ -33,16 +33,6 @@ public class MainActivity extends AppCompatActivity implements ToolbarConfigurat
     private SharedPreferences settings;
 
     @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-    // TODO: Al ir a configuraciones vuelve a la pagina por inicial
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

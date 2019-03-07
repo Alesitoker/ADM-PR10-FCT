@@ -17,6 +17,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.about.AboutMeActivity"
+            android:parentActivityName=".ui.main.MainActivity">
+
+            <intent-filter>
+                <action android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.about.AboutMeActivity"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
