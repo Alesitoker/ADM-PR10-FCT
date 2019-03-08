@@ -10,16 +10,14 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
-import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormVisitBinding;
-import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
@@ -49,7 +47,7 @@ public class FormVisitFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this , new FormVisitFragmentViewModelFactory(
-                new RepositoryImpl())).get(FormVisitFragmentViewModel.class);
+                Injector.provideRepository(requireContext()))).get(FormVisitFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();

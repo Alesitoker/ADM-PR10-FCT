@@ -6,7 +6,7 @@
     <string name="companiesFragment_title">Empresas</string>
     <string name="visitsFragment_title">Visitas</string>
     <string name="settingsFragment_title">Ajustes</string>
-    <string name="abourMeActivity_title">Acerca de</string>
+    <string name="aboutMeActivity_title">Acerca de</string>
 
     <string name="formStudentFragmenr_title">Alumno</string>
     <string name="formCompanyFragment_title">Empresa</string>

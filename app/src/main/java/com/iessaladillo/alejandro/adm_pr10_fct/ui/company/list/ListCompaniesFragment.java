@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
 
 import androidx.annotation.NonNull;
@@ -51,7 +52,7 @@ public class ListCompaniesFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, new ListCompaniesFragmentViewModelFactory(
-                new RepositoryImpl())).get(ListCompaniesFragmentViewModel.class);
+                Injector.provideRepository(requireContext()))).get(ListCompaniesFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();

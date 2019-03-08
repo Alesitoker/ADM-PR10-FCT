@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
 
 import androidx.annotation.NonNull;
@@ -50,9 +51,8 @@ public class ListStudentsFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this,
-                new ListStudentsFragmentViewModelFactory(new RepositoryImpl())).
-                get(ListStudentsFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this, new ListStudentsFragmentViewModelFactory(
+                Injector.provideRepository(requireContext()))).get(ListStudentsFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();

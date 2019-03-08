@@ -11,6 +11,7 @@ import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Visit;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.VisitStudent;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListVisitsBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
 
 import java.util.List;
@@ -54,9 +55,8 @@ public class ListVisitsFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this,
-                new ListVisitsFragmentViewModelFactory(new RepositoryImpl())).
-                get(ListVisitsFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this, new ListVisitsFragmentViewModelFactory(
+                Injector.provideRepository(requireContext()))).get(ListVisitsFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();

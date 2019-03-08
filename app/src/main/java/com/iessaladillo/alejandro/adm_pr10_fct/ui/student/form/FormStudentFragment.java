@@ -12,6 +12,7 @@ import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormStudentBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,7 @@ public class FormStudentFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, new FormStudentFragmentViewModelFactory(
-                new RepositoryImpl())).get(FormStudentFragmentViewModel.class);
+                Injector.provideRepository(requireContext()))).get(FormStudentFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();

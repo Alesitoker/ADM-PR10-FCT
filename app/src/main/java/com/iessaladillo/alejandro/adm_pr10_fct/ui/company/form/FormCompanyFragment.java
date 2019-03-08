@@ -12,8 +12,10 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.AppDatabase;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormCompanyBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
 import androidx.annotation.NonNull;
@@ -50,7 +52,7 @@ public class FormCompanyFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, new FormCompanyFragmentViewModelFactory(
-                new RepositoryImpl())).get(FormCompanyFragmentViewModel.class);
+                Injector.provideRepository(requireContext()))).get(FormCompanyFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupViews();

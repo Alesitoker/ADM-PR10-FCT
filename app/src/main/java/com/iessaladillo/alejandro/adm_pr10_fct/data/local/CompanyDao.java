@@ -13,7 +13,7 @@ import androidx.room.Query;
 public interface CompanyDao extends BaseDao<Company> {
 
     @Query("SELECT * FROM company WHERE id = :companyId")
-    LiveData<Company> queryCompani(long companyId);
+    LiveData<Company> queryCompany(long companyId);
 
     @Query("SELECT * FROM company")
     LiveData<List<Company>> queryCompanies();
