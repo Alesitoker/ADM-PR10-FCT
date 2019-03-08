@@ -37,6 +37,7 @@
     <string name="txtLogoLayout_hint">Url del logo</string>
     <string name="txtContactNameLayout_hint">Nombre del contacto</string>
     <string name="form_save">Save</string>
+    <string name="lblTime">%s-%s</string>
 
     <string name="aboutMe_title">FCT APP</string>
     <string name="aboutMe_text_version">Version 1.0</string>

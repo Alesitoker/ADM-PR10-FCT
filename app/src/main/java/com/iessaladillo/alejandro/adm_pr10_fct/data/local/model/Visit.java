@@ -3,6 +3,7 @@ package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
@@ -13,7 +14,10 @@ import static androidx.room.ForeignKey.RESTRICT;
         childColumns = "studentId",
         onDelete = RESTRICT,
         onUpdate = CASCADE
-))
+), indices = {@Index(value = {"studentId"},
+        unique = true
+)
+})
 public class Visit {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
@@ -57,5 +61,9 @@ public class Visit {
 
     public String getObservations() {
         return observations;
+    }
+
+    public long getStudentId() {
+        return studentId;
     }
 }

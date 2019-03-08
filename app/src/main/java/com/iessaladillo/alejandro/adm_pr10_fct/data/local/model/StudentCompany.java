@@ -3,24 +3,15 @@ package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 import androidx.room.ColumnInfo;
 
 public class StudentCompany {
-    @ColumnInfo(name = "id")
     long id;
-    @ColumnInfo(name = "name")
     private String name;
-    @ColumnInfo(name = "phone")
     private int phone;
-    @ColumnInfo(name = "email")
     private String email;
-    @ColumnInfo(name = "grade")
     private String grade;
-    @ColumnInfo(name = "companyId")
     private long companyId;
     private String companyName;
-    @ColumnInfo(name = "tutorName")
     private String tutorName;
-    @ColumnInfo(name = "tutorPhone")
     private int tutorPhone;
-    @ColumnInfo(name = "schedule")
     private String schedule;
 
     public StudentCompany(long id, String name, int phone, String email, String grade, long companyId, String companyName, String tutorName, int tutorPhone, String schedule) {

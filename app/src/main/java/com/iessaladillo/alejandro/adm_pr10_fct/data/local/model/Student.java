@@ -3,6 +3,7 @@ package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.*;
@@ -12,7 +13,9 @@ import static androidx.room.ForeignKey.*;
         childColumns = "companyId",
         onDelete = RESTRICT,
         onUpdate = RESTRICT
-))
+),indices = {@Index(value = {"companyId"},
+        unique = true
+)})
 public class Student {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

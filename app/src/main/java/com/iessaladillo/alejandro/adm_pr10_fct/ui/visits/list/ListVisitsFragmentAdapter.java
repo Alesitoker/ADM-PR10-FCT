@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.VisitStudent;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentVisitsItemBinding;
 
@@ -64,8 +65,8 @@ public class ListVisitsFragmentAdapter extends ListAdapter<VisitStudent, ListVis
 
         public void bind(VisitStudent visit) {
             b.lblDay.setText(visit.getDay());
-            b.lblStartTime.setText(visit.getStartTime());
-            b.lblEndTime.setText(visit.getEndTime());
+            b.lblTime.setText(b.getRoot().getResources().
+                    getString(R.string.lblTime, visit.getStartTime(), visit.getEndTime()));
             b.lblStudentName.setText(visit.getStudentName());
         }
     }
