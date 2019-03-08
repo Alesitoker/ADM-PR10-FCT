@@ -94,6 +94,7 @@ public class FormStudentFragment extends Fragment {
     }
 
     private void addCompany(TransferSelect tranferselec) {
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
         viewModel.setCompanyId(tranferselec.getId());
         b.txtCompany.setText(tranferselec.getName());
     }
