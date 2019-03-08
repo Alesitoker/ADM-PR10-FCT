@@ -177,4 +177,9 @@ public class RepositoryImpl implements Repository {
         });
         return result;
     }
+
+    @Override
+    public LiveData<List<VisitStudent>> queryNextVisits() {
+        return visitDao.queryNextVisits();
+    }
 }

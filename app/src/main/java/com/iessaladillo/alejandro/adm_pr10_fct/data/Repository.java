@@ -30,4 +30,6 @@ public interface Repository {
     LiveData<Resource<Long>> insertVisit(Visit visit);
     LiveData<Resource<Integer>> updateVisit(Visit visit);
     LiveData<Resource<Integer>> deleteVisit(Visit visit);
+    //Next visits
+    LiveData<List<VisitStudent>> queryNextVisits();
 }
