@@ -74,7 +74,11 @@ public class FormStudentFragment extends Fragment {
     }
 
     private void setupViews() {
+        b.txtCompany.setOnClickListener(v -> navigateToSelectCompany());
+    }
 
+    private void navigateToSelectCompany() {
+        navController.navigate(R.id.actionStudentsToSelectCompany);
     }
 
     @Override

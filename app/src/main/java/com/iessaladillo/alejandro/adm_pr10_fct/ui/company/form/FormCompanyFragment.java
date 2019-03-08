@@ -18,6 +18,8 @@ import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormCompanyBi
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
+import java.util.Objects;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +36,15 @@ public class FormCompanyFragment extends Fragment {
     private FragmentFormCompanyBinding b;
     private FormCompanyFragmentViewModel viewModel;
     private NavController navController;
+    private long id;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        Objects.requireNonNull(getArguments());
+        FormCompanyFragmentArgs args = FormCompanyFragmentArgs.fromBundle(getArguments());
+        id = args.getId();
     }
 
     @Nullable
@@ -55,8 +61,21 @@ public class FormCompanyFragment extends Fragment {
                 Injector.provideRepository(requireContext()))).get(FormCompanyFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
+        if (id > 0) {
+            viewModel.queryCompany(id).observe(this, company -> setupForm(company));
+        }
         setupViews();
         observe();
+    }
+
+    private void setupForm(Company company) {
+        b.txtName.setText(company.getName());
+        b.txtCIF.setText(company.getCif());
+        b.txtAddress.setText(company.getAddress());
+        b.txtPhone.setText(company.getPhone());
+        b.txtEmail.setText(company.getEmail());
+        b.txtLogo.setText(company.getLogo());
+        b.txtContactName.setText(company.getContactName());
     }
 
     private void observe() {

@@ -3,11 +3,17 @@ package com.iessaladillo.alejandro.adm_pr10_fct.data.local.model;
 import androidx.room.ColumnInfo;
 
 public class VisitStudent {
+    @ColumnInfo(name = "id")
     private long id;
+    @ColumnInfo(name = "day")
     private String day;
+    @ColumnInfo(name = "startTime")
     private String startTime;
+    @ColumnInfo(name = "endTime")
     private String endTime;
+    @ColumnInfo(name = "observations")
     private String observations;
+    @ColumnInfo(name = "studentId")
     private long studentId;
     private String studentName;
 

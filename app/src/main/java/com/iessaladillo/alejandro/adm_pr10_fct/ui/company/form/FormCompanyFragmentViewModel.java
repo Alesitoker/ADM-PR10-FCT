@@ -96,4 +96,8 @@ public class FormCompanyFragmentViewModel extends ViewModel {
     public LiveData<Event<String>> getErrorMessage() {
         return errorMessage;
     }
+
+    public LiveData<Company> queryCompany(long id) {
+        return repository.queryCompany(id);
+    }
 }

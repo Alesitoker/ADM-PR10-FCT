@@ -1,6 +1,5 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.company.list;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.student.form.selectCompany;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,36 +9,29 @@ import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
-import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form.FormCompanyFragmentViewModel;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form.FormCompanyFragmentViewModelFactory;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.company.list.ListCompaniesFragmentAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 
-public class ListCompaniesFragment extends Fragment {
+public class SelectCompanyFragment extends Fragment {
 
     private FragmentListCompaniesBinding b;
-    private ToolbarConfigurationInterface toolbarConfiguration;
-    private ListCompaniesFragmentViewModel viewModel;
-    private ListCompaniesFragmentAdapter listAdapter;
     private NavController navController;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        try {
-            toolbarConfiguration = (ToolbarConfigurationInterface) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException("Listener must implement ToolbarConfigurationInterface");
-        }
-
-    }
+    private ListCompaniesFragmentAdapter listAdapter;
+    private SelectCompanyFragmentViewModel viewModel;
 
     @Nullable
     @Override
@@ -51,11 +43,11 @@ public class ListCompaniesFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this, new ListCompaniesFragmentViewModelFactory(
-                Injector.provideRepository(requireContext()))).get(ListCompaniesFragmentViewModel.class);
+        viewModel = ViewModelProviders.of(this, new FormCompanyFragmentViewModelFactory(
+                Injector.provideRepository(requireContext()))).get(SelectCompanyFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
-        setupViews();
+        setupRecyclerView();
         observeCompanies();
     }
 
@@ -66,22 +58,10 @@ public class ListCompaniesFragment extends Fragment {
         });
     }
 
-    private void setupToolbar() {
-        Toolbar toolbar = b.toolbar;
-        toolbarConfiguration.configureToolbar(toolbar);
-    }
-
-    private void setupViews() {
-        setupRecyclerView();
-
-        b.fabAdd.setOnClickListener(v -> navigateToAddCompany());
-        b.lblEmptyView.setOnClickListener(v -> navigateToAddCompany());
-    }
-
     private void setupRecyclerView() {
         listAdapter = new ListCompaniesFragmentAdapter();
         listAdapter.setOnSelectItemClickListener(
-                position -> NavigateToEditCompany(listAdapter.getItem(position)));
+                position -> SendCompany(listAdapter.getItem(position)));
 
         b.lstCompany.setHasFixedSize(true);
         b.lstCompany.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstCompany_columns)));
@@ -89,13 +69,15 @@ public class ListCompaniesFragment extends Fragment {
         b.lstCompany.setAdapter(listAdapter);
     }
 
-    private void NavigateToEditCompany(Company company) {
-        ListCompaniesFragmentDirections.ActionCompaniesToFormCompany action =
-                ListCompaniesFragmentDirections.actionCompaniesToFormCompany().setId(company.getId());
-        navController.navigate(action);
+    private void SendCompany(Company company) {
+
     }
 
-    private void navigateToAddCompany() {
-        navController.navigate(R.id.actionCompaniesToFormCompany);
+    private void setupToolbar() {
+        Toolbar toolbar = b.toolbar;
+
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
+        NavigationUI.setupWithNavController(toolbar, navController, appBarConfiguration);
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
     }
 }

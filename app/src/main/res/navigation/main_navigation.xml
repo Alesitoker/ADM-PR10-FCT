@@ -16,7 +16,12 @@
         tools:layout="@layout/fragment_list_students" >
         <action
             android:id="@+id/actionStudentsToFormStudent"
-            app:destination="@id/formStudentFragment" />
+            app:destination="@id/formStudentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/actionStudentsToSelectCompany"
+            app:destination="@id/selectCompanyFragment" />
     </fragment>
     <fragment
         android:id="@+id/companiesFragment"
@@ -25,7 +30,9 @@
         tools:layout="@layout/fragment_list_companies" >
         <action
             android:id="@+id/actionCompaniesToFormCompany"
-            app:destination="@id/formCompanyFragment" />
+            app:destination="@id/formCompanyFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/visitsFragment"
@@ -34,23 +41,51 @@
         tools:layout="@layout/fragment_list_visits" >
         <action
             android:id="@+id/actionVisitsToFormVisit"
-            app:destination="@id/formVisitFragment" />
+            app:destination="@id/formVisitFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/actionVisitsToSelectStudent"
+            app:destination="@id/selectStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/formStudentFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.form.FormStudentFragment"
-        android:label="@string/formStudentFragmenr_title" />
+        android:label="@string/formStudentFragmenr_title" >
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
     <fragment
         android:id="@+id/formCompanyFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form.FormCompanyFragment"
-        android:label="@string/formCompanyFragment_title" />
+        android:label="@string/formCompanyFragment_title" >
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
     <fragment
         android:id="@+id/formVisitFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.form.FormVisitFragment"
-        android:label="@string/formVisitFragment_title" />
+        android:label="@string/formVisitFragment_title" >
+        <argument
+            android:name="id"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.settings.SettingsFragment"
         android:label="@string/settingsFragment_title" />
+    <fragment
+        android:id="@+id/selectCompanyFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.student.form.selectCompany.SelectCompanyFragment"
+        android:label="SelectCompanyFragment" />
+    <fragment
+        android:id="@+id/selectStudentFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.selectStudent.SelectStudentFragment"
+        android:label="SelectStudentFragment" />
 
 </navigation>

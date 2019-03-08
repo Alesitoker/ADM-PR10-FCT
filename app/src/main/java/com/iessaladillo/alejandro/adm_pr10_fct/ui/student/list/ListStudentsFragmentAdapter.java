@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.StudentCompany;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentStudentsItemBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.OnSelectItemClickListener;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -14,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ListStudentsFragmentAdapter extends ListAdapter<StudentCompany, ListStudentsFragmentAdapter.ViewHolder> {
 
-    protected ListStudentsFragmentAdapter() {
+    private OnSelectItemClickListener onSelectItemClickListener;
+
+    public ListStudentsFragmentAdapter() {
         super(new DiffUtil.ItemCallback<StudentCompany>() {
             @Override
             public boolean areItemsTheSame(@NonNull StudentCompany oldItem, @NonNull StudentCompany newItem) {
@@ -54,6 +57,10 @@ public class ListStudentsFragmentAdapter extends ListAdapter<StudentCompany, Lis
         return super.getItem(position);
     }
 
+    public void setOnSelectItemClickListener(OnSelectItemClickListener onSelectItemClickListener) {
+        this.onSelectItemClickListener = onSelectItemClickListener;
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         FragmentStudentsItemBinding b;
@@ -61,6 +68,8 @@ public class ListStudentsFragmentAdapter extends ListAdapter<StudentCompany, Lis
         public ViewHolder(@NonNull FragmentStudentsItemBinding b) {
             super(b.getRoot());
             this.b = b;
+
+            b.CLayout.setOnClickListener(v -> onSelectItemClickListener.onItemClick(getAdapterPosition()));
         }
 
         public void bind(StudentCompany student) {
