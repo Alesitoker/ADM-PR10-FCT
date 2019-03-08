@@ -96,6 +96,8 @@ public class ListCompaniesFragment extends Fragment {
     }
 
     private void navigateToAddCompany() {
-        navController.navigate(R.id.actionCompaniesToFormCompany);
+        ListCompaniesFragmentDirections.ActionCompaniesToFormCompany action =
+                ListCompaniesFragmentDirections.actionCompaniesToFormCompany().setId(0L);
+        navController.navigate(action);
     }
 }

@@ -68,5 +68,6 @@
 
     <string name="prefInfo_title">Acerca de</string>
     <string name="prefInfo_key">prefInfo</string>
+    <string name="form_delete">delete</string>
 
 </resources>

@@ -6,12 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
+import com.iessaladillo.alejandro.adm_pr10_fct.base.TransferSelect;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentSelectCompanyBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
-import com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form.FormCompanyFragmentViewModel;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.company.form.FormCompanyFragmentViewModelFactory;
-import com.iessaladillo.alejandro.adm_pr10_fct.ui.company.list.ListCompaniesFragmentAdapter;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.MainActivityViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,23 +29,25 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 public class SelectCompanyFragment extends Fragment {
 
-    private FragmentListCompaniesBinding b;
+    private FragmentSelectCompanyBinding b;
     private NavController navController;
-    private ListCompaniesFragmentAdapter listAdapter;
+    private SelectCompanyFragmentAdapter listAdapter;
     private SelectCompanyFragmentViewModel viewModel;
+    private MainActivityViewModel activityViewModel;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        b = FragmentListCompaniesBinding.inflate(inflater, container, false);
+        b = FragmentSelectCompanyBinding.inflate(inflater, container, false);
         return b.getRoot();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(this, new FormCompanyFragmentViewModelFactory(
+        viewModel = ViewModelProviders.of(this, new SelectCompanyFragmentViewModelFactory(
                 Injector.provideRepository(requireContext()))).get(SelectCompanyFragmentViewModel.class);
+        activityViewModel = ViewModelProviders.of(requireActivity()).get(MainActivityViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupRecyclerView();
@@ -54,12 +57,18 @@ public class SelectCompanyFragment extends Fragment {
     private void observeCompanies() {
         viewModel.getCompanies().observe(this, companies -> {
             listAdapter.submitList(companies);
-            b.lblEmptyView.setVisibility(companies.size() == 0 ? View.VISIBLE : View.INVISIBLE);
+            if (companies.size() == 0) {
+                salir();
+            }
         });
     }
 
+    private void salir() {
+        requireActivity().onBackPressed();
+    }
+
     private void setupRecyclerView() {
-        listAdapter = new ListCompaniesFragmentAdapter();
+        listAdapter = new SelectCompanyFragmentAdapter();
         listAdapter.setOnSelectItemClickListener(
                 position -> SendCompany(listAdapter.getItem(position)));
 
@@ -70,7 +79,8 @@ public class SelectCompanyFragment extends Fragment {
     }
 
     private void SendCompany(Company company) {
-
+        activityViewModel.setTransferred(new TransferSelect(company.getId(), company.getName()));
+        salir();
     }
 
     private void setupToolbar() {

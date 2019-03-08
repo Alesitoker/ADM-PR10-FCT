@@ -11,8 +11,8 @@ import androidx.lifecycle.ViewModel;
 
 public class SelectCompanyFragmentViewModel extends ViewModel {
 
-    MutableLiveData<List<Company>> companies = new MutableLiveData<>();
-    Repository repository;
+    private final MutableLiveData<List<Company>> companies = new MutableLiveData<>();
+    private final Repository repository;
 
     public SelectCompanyFragmentViewModel(Repository repository) {
         this.repository = repository;

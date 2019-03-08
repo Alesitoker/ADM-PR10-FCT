@@ -7,15 +7,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.snackbar.Snackbar;
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.base.EventObserver;
-import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
-import com.iessaladillo.alejandro.adm_pr10_fct.data.local.AppDatabase;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentFormCompanyBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.KeyboardUtils;
 import com.iessaladillo.alejandro.adm_pr10_fct.utils.ValidationUtils;
 
 import java.util.Objects;
@@ -61,8 +61,9 @@ public class FormCompanyFragment extends Fragment {
                 Injector.provideRepository(requireContext()))).get(FormCompanyFragmentViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
-        if (id > 0) {
-            viewModel.queryCompany(id).observe(this, company -> setupForm(company));
+        viewModel.setEditId(id);
+        if (savedInstanceState == null && viewModel.getEditId() > 0) {
+            viewModel.queryCompany(viewModel.getEditId()).observe(this, company -> setupForm(company));
         }
         setupViews();
         observe();
@@ -72,20 +73,20 @@ public class FormCompanyFragment extends Fragment {
         b.txtName.setText(company.getName());
         b.txtCIF.setText(company.getCif());
         b.txtAddress.setText(company.getAddress());
-        b.txtPhone.setText(company.getPhone());
+        b.txtPhone.setText(String.valueOf(company.getPhone()));
         b.txtEmail.setText(company.getEmail());
         b.txtLogo.setText(company.getLogo());
         b.txtContactName.setText(company.getContactName());
     }
 
     private void observe() {
-        viewModel.getSuccessMessage().observe(this, new EventObserver<>(message -> showMessage()));
-        viewModel.getErrorMessage().observe(this, new EventObserver<>(message -> showMessage()));
+        viewModel.getSuccessMessage().observe(this, new EventObserver<>(message -> showMessage(message)));
+        viewModel.getErrorMessage().observe(this, new EventObserver<>(message -> showMessage(message)));
     }
 
-    private void showMessage() {
-        // TODO: Preguntar cual es mejor.
-        navController.navigateUp();
+    private void showMessage(String message) {
+        Toast.makeText(requireContext().getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        requireActivity().onBackPressed();
     }
 
     private void setupToolbar() {
@@ -104,6 +105,9 @@ public class FormCompanyFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.fragment_form_company, menu);
+        if (viewModel.getEditId() <= 0) {
+            menu.getItem(1).setVisible(false);
+        }
     }
 
     @Override
@@ -111,14 +115,19 @@ public class FormCompanyFragment extends Fragment {
         if (item.getItemId() == R.id.mnuSave) {
             save();
             return true;
+        } else if (item.getItemId() == R.id.mnuDelete) {
+            delete();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
-    // TODO: crear un objeto dependiendo de si voy a actualizar o insertar
+
     private void save() {
         String name, cif, address, email, logo, contactName;
-        int id = 0, phone;
-
+        int phone;
+        long id = viewModel.getEditId() > 0 ? viewModel.getEditId(): 0;
+        Company company;
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
         if (checkFields()) {
             name = b.txtName.getText().toString();
             cif = b.txtCIF.getText().toString();
@@ -128,8 +137,33 @@ public class FormCompanyFragment extends Fragment {
             logo = b.txtLogo.getText().toString();
             contactName = b.txtContactName.getText().toString();
 
-//            viewModel.insertCompany(new Company(id, name, cif, address, phone, email, logo, contactName));
+            company = new Company(id, name, cif, address, phone, email, logo, contactName);
+            if (viewModel.getEditId() > 0) {
+                viewModel.updateCompany(company);
+            } else {
+                viewModel.insertCompany(company);
+            }
         }
+    }
+
+    private void delete() {
+        String name, cif, address, email, logo, contactName;
+        int phone;
+        long id = viewModel.getEditId();
+
+        name = b.txtName.getText().toString();
+        cif = b.txtCIF.getText().toString();
+        address = b.txtAddress.getText().toString();
+        phone = Integer.parseInt(b.txtPhone.getText().toString());
+        email = b.txtEmail.getText().toString();
+        logo = b.txtLogo.getText().toString();
+        contactName = b.txtContactName.getText().toString();
+
+        Company company;
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
+
+        company = new Company(id, name, cif, address, phone, email, logo, contactName);
+        viewModel.deleteCompany(company);
     }
 
     private boolean checkFields() {
@@ -157,7 +191,7 @@ public class FormCompanyFragment extends Fragment {
 
     private boolean checkCIF() {
         boolean valid;
-        if (!b.txtCIF.getText().toString().isEmpty()) {
+        if (!b.txtCIF.getText().toString().isEmpty() && b.txtCIF.getText().toString().matches("([ABCDEFGHJKLMNPQRSUVW])([0-9]{7})([0-9A-J])")) {
             b.txtCIFLayout.setErrorEnabled(false);
             valid = true;
         } else {
@@ -194,7 +228,7 @@ public class FormCompanyFragment extends Fragment {
 
     private boolean checkEmail() {
         boolean valid;
-        if (ValidationUtils.isValidEmail(b.txtEmail.getText().toString())) {
+        if (!b.txtEmail.getText().toString().isEmpty() || ValidationUtils.isValidEmail(b.txtEmail.getText().toString())) {
             b.txtEmailLayout.setErrorEnabled(false);
             valid = true;
         } else {
@@ -206,7 +240,7 @@ public class FormCompanyFragment extends Fragment {
 
     private boolean checkUrlLogo() {
         boolean valid;
-        if (ValidationUtils.isValidUrl(b.txtLogo.getText().toString())) {
+        if (b.txtLogo.getText().toString().isEmpty() || ValidationUtils.isValidUrl(b.txtLogo.getText().toString())) {
             b.txtLogoLayout.setErrorEnabled(false);
             valid = true;
         } else {

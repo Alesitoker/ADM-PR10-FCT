@@ -85,7 +85,7 @@
         android:label="SelectCompanyFragment" />
     <fragment
         android:id="@+id/selectStudentFragment"
-        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.selectStudent.SelectStudentFragment"
+        android:name="com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.form.selectStudent.SelectStudentFragment"
         android:label="SelectStudentFragment" />
 
 </navigation>

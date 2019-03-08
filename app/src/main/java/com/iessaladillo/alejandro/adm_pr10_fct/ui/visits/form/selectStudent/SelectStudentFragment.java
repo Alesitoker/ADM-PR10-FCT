@@ -1,4 +1,4 @@
-package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.selectStudent;
+package com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.form.selectStudent;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentSelectStudentBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list.ListStudentsFragmentAdapter;
 
 import androidx.annotation.NonNull;
@@ -23,14 +24,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 
 public class SelectStudentFragment extends Fragment {
 
-    private FragmentListStudentsBinding b;
+    private FragmentSelectStudentBinding b;
     private NavController navController;
     private ListStudentsFragmentAdapter listAdapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        b = FragmentListStudentsBinding.inflate(inflater, container, false);
+        b = FragmentSelectStudentBinding.inflate(inflater, container, false);
         return b.getRoot();
     }
 

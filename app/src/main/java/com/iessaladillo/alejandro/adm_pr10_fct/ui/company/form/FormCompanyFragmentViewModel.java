@@ -22,6 +22,7 @@ public class FormCompanyFragmentViewModel extends ViewModel {
     private final LiveData<Resource<Long>> insertResult;
     private final LiveData<Resource<Integer>> updateResult;
     private final LiveData<Resource<Integer>> deleteResult;
+    private long editId;
     private Repository repository;
 
     public FormCompanyFragmentViewModel(Repository repository) {
@@ -29,7 +30,7 @@ public class FormCompanyFragmentViewModel extends ViewModel {
 
         insertResult = Transformations.switchMap(insertTrigger, repository::insertCompany);
         updateResult = Transformations.switchMap(updateTrigger, repository::updateCompany);
-        deleteResult = Transformations.switchMap(deleteTrigger, repository::updateCompany);
+        deleteResult = Transformations.switchMap(deleteTrigger, repository::deleteCompany);
 
         setupSuccesMessage();
         setupErrorMessage();
@@ -99,5 +100,13 @@ public class FormCompanyFragmentViewModel extends ViewModel {
 
     public LiveData<Company> queryCompany(long id) {
         return repository.queryCompany(id);
+    }
+
+    public long getEditId() {
+        return editId;
+    }
+
+    public void setEditId(long editId) {
+        this.editId = editId;
     }
 }

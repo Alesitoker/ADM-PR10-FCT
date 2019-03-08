@@ -18,6 +18,6 @@ public class SelectCompanyFragmentViewModelFactory implements ViewModelProvider.
     @NonNull
     @Override
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
-        return (T) new FormCompanyFragmentViewModel(repository);
+        return (T) new SelectCompanyFragmentViewModel(repository);
     }
 }
