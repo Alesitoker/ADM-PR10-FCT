@@ -11,11 +11,10 @@ import androidx.lifecycle.ViewModel;
 
 public class ListVisitsFragmentViewModel extends ViewModel {
 
-    MutableLiveData<List<VisitStudent>> visits = new MutableLiveData<>();
-    Repository repository;
+    LiveData<List<VisitStudent>> visits;
 
     public ListVisitsFragmentViewModel(Repository repository) {
-        this.repository = repository;
+        visits = repository.queryVisits();
     }
 
     public LiveData<List<VisitStudent>> getVisits() {

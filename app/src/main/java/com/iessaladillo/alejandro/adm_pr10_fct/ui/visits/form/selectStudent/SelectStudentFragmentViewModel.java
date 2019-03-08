@@ -10,16 +10,16 @@ import androidx.lifecycle.ViewModel;
 
 public class SelectStudentFragmentViewModel extends ViewModel {
 
-    private final LiveData<List<StudentCompany>> students;
+    private final LiveData<List<StudentCompany>> visits;
     private final Repository repository;
 
     public SelectStudentFragmentViewModel(Repository repository) {
         this.repository = repository;
 
-        students = repository.queryStudents();
+        visits = repository.queryStudents();
     }
 
-    public LiveData<List<StudentCompany>> getStudents() {
-        return students;
+    public LiveData<List<StudentCompany>> getVisits() {
+        return visits;
     }
 }

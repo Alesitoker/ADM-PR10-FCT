@@ -13,6 +13,8 @@ import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.VisitStudent;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListVisitsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list.ListStudentsFragmentDirections;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.KeyboardUtils;
 
 import java.util.List;
 
@@ -61,6 +63,7 @@ public class ListVisitsFragment extends Fragment {
         setupToolbar();
         setupViews();
         observeVisits();
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
     }
 
     private void observeVisits() {
@@ -84,15 +87,24 @@ public class ListVisitsFragment extends Fragment {
 
     private void setupRecyclerView() {
         listAdapter = new ListVisitsFragmentAdapter();
+        listAdapter.setOnSelectItemClickListener(
+                position -> NavigateToEditVisit(listAdapter.getItem(position)));
 
         b.lstVisits.setHasFixedSize(true);
         b.lstVisits.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstVisit_columns)));
-        b.lstVisits.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         b.lstVisits.setAdapter(listAdapter);
     }
 
+    private void NavigateToEditVisit(VisitStudent visit) {
+        ListVisitsFragmentDirections.ActionVisitsToFormVisit action =
+                ListVisitsFragmentDirections.actionVisitsToFormVisit().setId(visit.getId());
+        navController.navigate(action);
+    }
+
     private void navigateToAddVisit() {
-        navController.navigate(R.id.actionVisitsToFormVisit);
+        ListVisitsFragmentDirections.ActionVisitsToFormVisit action =
+                ListVisitsFragmentDirections.actionVisitsToFormVisit().setId(0L);
+        navController.navigate(action);
     }
 
 }

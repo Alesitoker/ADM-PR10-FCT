@@ -6,65 +6,70 @@
     <data>
 
     </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/CLayout"
-        android:layout_height="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRoot"
         android:layout_width="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/lblName"
-            android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CLayout"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/companies_item_marginStart"
-            android:paddingTop="@dimen/companies_item_paddingBottom"
-            android:paddingBottom="@dimen/companies_item_paddingBottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/full_names" />
+            android:layout_width="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/lblPhonenumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/companies_item_marginStart"
-            android:paddingBottom="@dimen/companies_item_paddingBottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblName"
-            tools:text="@tools:sample/us_phones" />
+            <TextView
+                android:id="@+id/lblName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/companies_item_marginStart"
+                android:paddingTop="@dimen/companies_item_paddingBottom"
+                android:paddingBottom="@dimen/companies_item_paddingBottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/full_names" />
 
-        <TextView
-            android:id="@+id/lblEmail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/companies_item_marginStart"
-            android:paddingBottom="@dimen/companies_item_paddingBottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblPhonenumber"
-            tools:text="test@test.es" />
+            <TextView
+                android:id="@+id/lblPhonenumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/companies_item_marginStart"
+                android:paddingBottom="@dimen/companies_item_paddingBottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblName"
+                tools:text="@tools:sample/us_phones" />
 
-        <TextView
-            android:id="@+id/lblAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/companies_item_marginStart"
-            android:paddingBottom="@dimen/companies_item_paddingBottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lblEmail"
-            tools:text="C/Agua de los santos dineros" />
+            <TextView
+                android:id="@+id/lblEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/companies_item_marginStart"
+                android:paddingBottom="@dimen/companies_item_paddingBottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblPhonenumber"
+                tools:text="test@test.es" />
 
-        <ImageView
-            android:id="@+id/imgLogo"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/lblEmail"
-            android:layout_marginEnd="@dimen/companies_item_img_margin"
-            android:layout_marginTop="@dimen/companies_item_img_margin"
-            android:scaleType="centerCrop"
-            app:layout_constraintDimensionRatio="@string/companies_item_img_dimensionRatio" />
+            <TextView
+                android:id="@+id/lblAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/companies_item_marginStart"
+                android:paddingBottom="@dimen/companies_item_paddingBottom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lblEmail"
+                tools:text="C/Agua de los santos dineros" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/lblEmail"
+                android:layout_marginEnd="@dimen/companies_item_img_margin"
+                android:layout_marginTop="@dimen/companies_item_img_margin"
+                android:scaleType="centerCrop"
+                app:layout_constraintDimensionRatio="@string/companies_item_img_dimensionRatio" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

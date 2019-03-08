@@ -6,8 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
+import com.iessaladillo.alejandro.adm_pr10_fct.base.TransferSelect;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.StudentCompany;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentSelectStudentBinding;
+import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.MainActivityViewModel;
+import com.iessaladillo.alejandro.adm_pr10_fct.ui.student.form.selectCompany.SelectCompanyFragmentViewModel;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.student.list.ListStudentsFragmentAdapter;
 
 import androidx.annotation.NonNull;
@@ -15,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -26,7 +32,9 @@ public class SelectStudentFragment extends Fragment {
 
     private FragmentSelectStudentBinding b;
     private NavController navController;
-    private ListStudentsFragmentAdapter listAdapter;
+    private SelectStudentFragmentAdapter listAdapter;
+    private SelectStudentFragmentViewModel viewModel;
+    private MainActivityViewModel activityViewModel;
 
     @Nullable
     @Override
@@ -38,9 +46,26 @@ public class SelectStudentFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        viewModel = ViewModelProviders.of(this, new SelectStudentFragmentViewModelFactory(
+                Injector.provideRepository(requireContext().getApplicationContext()))).get(SelectStudentFragmentViewModel.class);
+        activityViewModel = ViewModelProviders.of(requireActivity()).get(MainActivityViewModel.class);
         navController = NavHostFragment.findNavController(this);
         setupToolbar();
         setupRecyclerView();
+        observeVisits();
+    }
+
+    private void observeVisits() {
+        viewModel.getVisits().observe(this, visits -> {
+            listAdapter.submitList(visits);
+            if (visits.size() == 0) {
+                salir();
+            }
+        });
+    }
+
+    private void salir() {
+        requireActivity().onBackPressed();
     }
 
     private void setupToolbar() {
@@ -52,16 +77,16 @@ public class SelectStudentFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        listAdapter = new ListStudentsFragmentAdapter();
-        listAdapter.setOnSelectItemClickListener(position -> sendStudent());
+        listAdapter = new SelectStudentFragmentAdapter();
+        listAdapter.setOnSelectItemClickListener(position -> sendStudent(listAdapter.getItem(position)));
 
         b.lstStudent.setHasFixedSize(true);
         b.lstStudent.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstStudent_columns)));
-        b.lstStudent.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         b.lstStudent.setAdapter(listAdapter);
     }
 
-    private void sendStudent() {
-
+    private void sendStudent(StudentCompany student) {
+        activityViewModel.setTransferred(new TransferSelect(student.getId(), student.getName()));
+        salir();
     }
 }

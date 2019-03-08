@@ -10,7 +10,7 @@
         android:id="@+id/cvRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="@dimen/fragment_select_student_item_cv_margin">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/CLayout"
             android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/student_item_lbl_margin"
-                android:padding="8dp"
+                android:padding="@dimen/fragment_select_student_item_padding"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@tools:sample/full_names" />
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/student_item_lbl_margin"
-                android:padding="8dp"
+                android:padding="@dimen/fragment_select_student_item_padding"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lblName"
                 tools:text="@tools:sample/us_phones" />
@@ -41,8 +41,8 @@
                 android:id="@+id/lblEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:padding="8dp"
+                android:layout_marginStart="@dimen/student_item_lbl_margin"
+                android:padding="@dimen/fragment_select_student_item_padding"
                 app:layout_constraintStart_toEndOf="@+id/lblPhonenumber"
                 app:layout_constraintTop_toBottomOf="@+id/lblName"
                 tools:text="test@test.es" />
@@ -51,8 +51,8 @@
                 android:id="@+id/lblcompanyName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="16dp"
+                android:padding="@dimen/fragment_select_student_item_padding"
+                android:layout_marginEnd="@dimen/fragment_select_student_item_lblCompanyName_marginEnd"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="company name" />

@@ -69,5 +69,8 @@
     <string name="prefInfo_title">Acerca de</string>
     <string name="prefInfo_key">prefInfo</string>
     <string name="form_delete">delete</string>
+    <string name="txtDay_value">%d/%d/%d</string>
+    <string name="txtStartTime_value">%d:%d</string>
+    <string name="txtEndTime_value">%d:%d</string>
 
 </resources>

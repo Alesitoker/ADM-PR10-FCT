@@ -10,7 +10,7 @@
         android:id="@+id/cvRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:layout_margin="@dimen/fragment_companies_item_cv_margin">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/CLayout"
             android:layout_width="match_parent"

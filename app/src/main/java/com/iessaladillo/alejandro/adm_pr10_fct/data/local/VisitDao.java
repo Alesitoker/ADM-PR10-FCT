@@ -13,9 +13,9 @@ import androidx.room.Query;
 @Dao
 public interface VisitDao extends BaseDao<Visit> {
 
-    @Query("SELECT v.*, s.name FROM visit v JOIN student s ON v.studentId = s.id")
+    @Query("SELECT v.id, v.day, v.startTime, v.endTime, v.observations, v.studentId, s.name AS studentName FROM visit v JOIN student s ON v.studentId = s.id")
     LiveData<List<VisitStudent>> queryVisits();
 
-    @Query("SELECT v.*, s.name FROM visit v JOIN student s ON v.studentId = s.id WHERE v.id = :visitId")
+    @Query("SELECT v.id, v.day, v.startTime, v.endTime, v.observations, v.studentId, s.name AS studentName FROM visit v JOIN student s ON v.studentId = s.id WHERE v.id = :visitId")
     LiveData<VisitStudent> queryVisit(long visitId);
 }

@@ -74,7 +74,6 @@ public class SelectCompanyFragment extends Fragment {
 
         b.lstCompany.setHasFixedSize(true);
         b.lstCompany.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstCompany_columns)));
-        b.lstCompany.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         b.lstCompany.setAdapter(listAdapter);
     }
 

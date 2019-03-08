@@ -13,6 +13,7 @@ import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.StudentCompany;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.KeyboardUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,6 +59,7 @@ public class ListStudentsFragment extends Fragment {
         setupToolbar();
         setupViews();
         observeStudents();
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
     }
 
     private void observeStudents() {
@@ -86,7 +88,6 @@ public class ListStudentsFragment extends Fragment {
 
         b.lstStudent.setHasFixedSize(true);
         b.lstStudent.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstStudent_columns)));
-        b.lstStudent.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
         b.lstStudent.setAdapter(listAdapter);
     }
 
