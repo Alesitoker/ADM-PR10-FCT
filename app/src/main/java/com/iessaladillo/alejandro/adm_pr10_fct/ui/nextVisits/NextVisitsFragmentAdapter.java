@@ -76,9 +76,11 @@ public class NextVisitsFragmentAdapter extends ListAdapter<VisitStudent, NextVis
         }
 
         public void bind(VisitStudent visit) {
-            if (visit.getDay() != null)
+            if (visit.getDay() != null) {
                 b.lblDay.setText(visit.getDay());
-            Log.d("agua", visit.getStudentName());
+            } else {
+                b.lblDay.setText(R.string.message_nextvisit_not_visit_yet);
+            }
             b.lblStudentName.setText(visit.getStudentName());
         }
     }
