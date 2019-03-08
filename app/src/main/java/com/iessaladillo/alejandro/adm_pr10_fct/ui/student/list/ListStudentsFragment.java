@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.RepositoryImpl;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.StudentCompany;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListStudentsBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
@@ -81,6 +82,7 @@ public class ListStudentsFragment extends Fragment {
 
     private void setupRecyclerView() {
         listAdapter = new ListStudentsFragmentAdapter();
+        listAdapter.setOnSelectItemClickListener(position -> NavigateToEditStudent(listAdapter.getItem(position)));
 
         b.lstStudent.setHasFixedSize(true);
         b.lstStudent.setLayoutManager(new GridLayoutManager(requireContext(), getResources().getInteger(R.integer.lstStudent_columns)));
@@ -88,7 +90,15 @@ public class ListStudentsFragment extends Fragment {
         b.lstStudent.setAdapter(listAdapter);
     }
 
+    private void NavigateToEditStudent(StudentCompany student) {
+        ListStudentsFragmentDirections.ActionStudentsToFormStudent action =
+                ListStudentsFragmentDirections.actionStudentsToFormStudent().setId(student.getId());
+        navController.navigate(action);
+    }
+
     private void navigateToAddStudent() {
-        navController.navigate(R.id.actionStudentsToFormStudent);
+        ListStudentsFragmentDirections.ActionStudentsToFormStudent action =
+                ListStudentsFragmentDirections.actionStudentsToFormStudent().setId(0L);
+        navController.navigate(action);
     }
 }

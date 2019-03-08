@@ -6,40 +6,47 @@
     <data>
 
     </data>
-    <!--TODO: cambiar a recursos los padding y margin-->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/CLayout"
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/cvRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/lblStudentName"
-            android:layout_width="wrap_content"
+        android:layout_margin="@dimen/fragment_visits_item_cv_margin">
+        <!--TODO: cambiar a recursos los padding y margin-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/CLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_marginTop="24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/full_names" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/lblDay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toEndOf="@+id/lblStudentName"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="12/02/2019" />
+            <TextView
+                android:id="@+id/lblStudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/full_names" />
 
-        <TextView
-            android:id="@+id/lblTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            app:layout_constraintStart_toStartOf="@+id/lblDay"
-            app:layout_constraintTop_toBottomOf="@+id/lblDay"
-            tools:text="12:00-12:30" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/lblDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toEndOf="@+id/lblStudentName"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="12/02/2019" />
+
+            <TextView
+                android:id="@+id/lblTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:layout_constraintStart_toStartOf="@+id/lblDay"
+                app:layout_constraintTop_toBottomOf="@+id/lblDay"
+                tools:text="12:00-12:30" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

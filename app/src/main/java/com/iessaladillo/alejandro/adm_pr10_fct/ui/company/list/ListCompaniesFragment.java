@@ -11,6 +11,7 @@ import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Company;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentListCompaniesBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.di.Injector;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.main.ToolbarConfigurationInterface;
+import com.iessaladillo.alejandro.adm_pr10_fct.utils.KeyboardUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,6 +58,7 @@ public class ListCompaniesFragment extends Fragment {
         setupToolbar();
         setupViews();
         observeCompanies();
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
     }
 
     private void observeCompanies() {

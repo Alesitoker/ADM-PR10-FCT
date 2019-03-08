@@ -6,16 +6,14 @@ import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.StudentCompany;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class ListStudentsFragmentViewModel extends ViewModel {
 
-    MutableLiveData<List<StudentCompany>> students = new MutableLiveData<>();
-    Repository repository;
+    private final LiveData<List<StudentCompany>> students;
 
     public ListStudentsFragmentViewModel(Repository repository) {
-        this.repository = repository;
+        students = repository.queryStudents();
     }
 
     public LiveData<List<StudentCompany>> getStudents() {

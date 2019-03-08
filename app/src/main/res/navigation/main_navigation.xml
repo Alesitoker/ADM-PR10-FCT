@@ -19,9 +19,6 @@
             app:destination="@id/formStudentFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/actionStudentsToSelectCompany"
-            app:destination="@id/selectCompanyFragment" />
     </fragment>
     <fragment
         android:id="@+id/companiesFragment"
@@ -44,9 +41,6 @@
             app:destination="@id/formVisitFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
-        <action
-            android:id="@+id/actionVisitsToSelectStudent"
-            app:destination="@id/selectStudentFragment" />
     </fragment>
     <fragment
         android:id="@+id/formStudentFragment"
@@ -56,6 +50,11 @@
             android:name="id"
             app:argType="long"
             android:defaultValue="0L" />
+        <action
+            android:id="@+id/actionFormStudentToSelectCompany"
+            app:destination="@id/selectCompanyFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/formCompanyFragment"
@@ -74,6 +73,11 @@
             android:name="id"
             android:defaultValue="0L"
             app:argType="long" />
+        <action
+            android:id="@+id/actionFormVisitToSelectStudent"
+            app:destination="@id/selectStudentFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

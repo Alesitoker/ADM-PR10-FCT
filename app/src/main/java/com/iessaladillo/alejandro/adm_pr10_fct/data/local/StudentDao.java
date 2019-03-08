@@ -13,9 +13,9 @@ import androidx.room.Query;
 @Dao
 public interface StudentDao extends BaseDao<Student> {
 
-    @Query("SELECT s.*, c.name FROM student s JOIN company c ON s.companyId = c.id")
+    @Query("SELECT s.id, s.name, s.phone, s.email, s.grade, s.companyId, s.tutorName, s.tutorPhone, s.schedule, c.name AS companyName FROM student s JOIN company c ON s.companyId = c.id")
     LiveData<List<StudentCompany>> queryStudents();
 
-    @Query("SELECT s.*, c.name FROM student s JOIN company c ON s.companyId = c.id WHERE s.id = :studentId")
+    @Query("SELECT s.id, s.name, s.phone, s.email, s.grade, s.companyId, s.tutorName, s.tutorPhone, s.schedule, c.name AS companyName FROM student s JOIN company c ON s.companyId = c.id WHERE s.id = :studentId")
     LiveData<StudentCompany> queryStudent(long studentId);
 }

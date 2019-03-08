@@ -23,7 +23,7 @@ public class FormCompanyFragmentViewModel extends ViewModel {
     private final LiveData<Resource<Integer>> updateResult;
     private final LiveData<Resource<Integer>> deleteResult;
     private long editId;
-    private Repository repository;
+    private final Repository repository;
 
     public FormCompanyFragmentViewModel(Repository repository) {
         this.repository = repository;
@@ -98,8 +98,8 @@ public class FormCompanyFragmentViewModel extends ViewModel {
         return errorMessage;
     }
 
-    public LiveData<Company> queryCompany(long id) {
-        return repository.queryCompany(id);
+    public LiveData<Company> queryCompany() {
+        return repository.queryCompany(editId);
     }
 
     public long getEditId() {

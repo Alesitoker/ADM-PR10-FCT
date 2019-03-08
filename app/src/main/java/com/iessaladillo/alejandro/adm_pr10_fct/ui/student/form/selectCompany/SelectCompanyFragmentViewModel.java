@@ -11,11 +11,10 @@ import androidx.lifecycle.ViewModel;
 
 public class SelectCompanyFragmentViewModel extends ViewModel {
 
-    private final MutableLiveData<List<Company>> companies = new MutableLiveData<>();
-    private final Repository repository;
+    private LiveData<List<Company>> companies;
 
     public SelectCompanyFragmentViewModel(Repository repository) {
-        this.repository = repository;
+        companies = repository.queryCompanies();
     }
 
     public LiveData<List<Company>> getCompanies() {

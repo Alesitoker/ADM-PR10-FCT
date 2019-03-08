@@ -63,7 +63,7 @@ public class FormCompanyFragment extends Fragment {
         setupToolbar();
         viewModel.setEditId(id);
         if (savedInstanceState == null && viewModel.getEditId() > 0) {
-            viewModel.queryCompany(viewModel.getEditId()).observe(this, company -> setupForm(company));
+            viewModel.queryCompany().observe(this, company -> setupForm(company));
         }
         setupViews();
         observe();
@@ -123,21 +123,12 @@ public class FormCompanyFragment extends Fragment {
     }
 
     private void save() {
-        String name, cif, address, email, logo, contactName;
-        int phone;
-        long id = viewModel.getEditId() > 0 ? viewModel.getEditId(): 0;
         Company company;
-        KeyboardUtils.hideSoftKeyboard(requireActivity());
-        if (checkFields()) {
-            name = b.txtName.getText().toString();
-            cif = b.txtCIF.getText().toString();
-            address = b.txtAddress.getText().toString();
-            phone = Integer.parseInt(b.txtPhone.getText().toString());
-            email = b.txtEmail.getText().toString();
-            logo = b.txtLogo.getText().toString();
-            contactName = b.txtContactName.getText().toString();
 
-            company = new Company(id, name, cif, address, phone, email, logo, contactName);
+        closeKeyboard();
+        if (checkFields()) {
+            company = createCompany();
+
             if (viewModel.getEditId() > 0) {
                 viewModel.updateCompany(company);
             } else {
@@ -147,9 +138,21 @@ public class FormCompanyFragment extends Fragment {
     }
 
     private void delete() {
+        Company company = createCompany();
+
+        closeKeyboard();
+
+        viewModel.deleteCompany(company);
+    }
+
+    private void closeKeyboard() {
+        KeyboardUtils.hideSoftKeyboard(requireActivity());
+    }
+
+    private Company createCompany() {
         String name, cif, address, email, logo, contactName;
         int phone;
-        long id = viewModel.getEditId();
+        long id = viewModel.getEditId() > 0 ? viewModel.getEditId(): 0;
 
         name = b.txtName.getText().toString();
         cif = b.txtCIF.getText().toString();
@@ -159,11 +162,7 @@ public class FormCompanyFragment extends Fragment {
         logo = b.txtLogo.getText().toString();
         contactName = b.txtContactName.getText().toString();
 
-        Company company;
-        KeyboardUtils.hideSoftKeyboard(requireActivity());
-
-        company = new Company(id, name, cif, address, phone, email, logo, contactName);
-        viewModel.deleteCompany(company);
+        return new Company(id, name, cif, address, phone, email, logo, contactName);
     }
 
     private boolean checkFields() {
@@ -228,7 +227,7 @@ public class FormCompanyFragment extends Fragment {
 
     private boolean checkEmail() {
         boolean valid;
-        if (!b.txtEmail.getText().toString().isEmpty() || ValidationUtils.isValidEmail(b.txtEmail.getText().toString())) {
+        if (!b.txtEmail.getText().toString().isEmpty() && ValidationUtils.isValidEmail(b.txtEmail.getText().toString())) {
             b.txtEmailLayout.setErrorEnabled(false);
             valid = true;
         } else {

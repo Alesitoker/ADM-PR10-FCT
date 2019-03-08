@@ -17,4 +17,9 @@
     <dimen name="fragment_form_company_padding">16dp</dimen>
     <dimen name="fragment_form_visit_txtLayout_marginTop">16dp</dimen>
     <dimen name="fragment_form_visit_padding">16dp</dimen>
+    <dimen name="fragment_student_item_marginEnd">16dp</dimen>
+    <dimen name="fragment_student_item_padding">8dp</dimen>
+    <dimen name="fragment_student_item_cv_margin">8dp</dimen>
+    <dimen name="fragment_nextvisits_item_cv_margin">8dp</dimen>
+    <dimen name="fragment_visits_item_cv_margin">8dp</dimen>
 </resources>

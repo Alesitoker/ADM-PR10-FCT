@@ -4,6 +4,7 @@ import com.iessaladillo.alejandro.adm_pr10_fct.base.Event;
 import com.iessaladillo.alejandro.adm_pr10_fct.base.Resource;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.Repository;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.Student;
+import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.StudentCompany;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
@@ -21,14 +22,16 @@ public class FormStudentFragmentViewModel extends ViewModel {
     private final LiveData<Resource<Long>> insertResult;
     private final LiveData<Resource<Integer>> updateResult;
     private final LiveData<Resource<Integer>> deleteResult;
-    Repository repository;
+    private long editId;
+    private long companyId;
+    private final Repository repository;
 
     public FormStudentFragmentViewModel(Repository repository) {
         this.repository = repository;
 
         insertResult = Transformations.switchMap(insertTrigger, repository::insertStudent);
         updateResult = Transformations.switchMap(updateTrigger, repository::updateStudent);
-        deleteResult = Transformations.switchMap(deleteTrigger, repository::updateStudent);
+        deleteResult = Transformations.switchMap(deleteTrigger, repository::deleteStudent);
 
         setupSuccesMessage();
         setupErrorMessage();
@@ -94,5 +97,25 @@ public class FormStudentFragmentViewModel extends ViewModel {
 
     public LiveData<Event<String>> getErrorMessage() {
         return errorMessage;
+    }
+
+    public LiveData<StudentCompany> queryStudent() {
+        return repository.queryStudent(editId);
+    }
+
+    public long getEditId() {
+        return editId;
+    }
+
+    public void setEditId(long editId) {
+        this.editId = editId;
+    }
+
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
     }
 }

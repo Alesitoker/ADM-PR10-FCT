@@ -29,7 +29,7 @@ public class FormVisitFragmentViewModel extends ViewModel {
 
         insertResult = Transformations.switchMap(insertTrigger, repository::insertVisit);
         updateResult = Transformations.switchMap(updateTrigger, repository::updateVisit);
-        deleteResult = Transformations.switchMap(deleteTrigger, repository::updateVisit);
+        deleteResult = Transformations.switchMap(deleteTrigger, repository::deleteVisit);
 
         setupSuccesMessage();
         setupErrorMessage();
