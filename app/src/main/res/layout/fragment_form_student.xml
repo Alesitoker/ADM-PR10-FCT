@@ -24,7 +24,6 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
-        <!--TODO: Hacer bien, Mejorar formulario-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtNameLayout"
             android:layout_width="0dp"
@@ -84,7 +83,6 @@
                 android:imeOptions="actionNext"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <!--TODO: Cambiar padding a un recurso-->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txtGradeLayout"
             android:layout_width="0dp"

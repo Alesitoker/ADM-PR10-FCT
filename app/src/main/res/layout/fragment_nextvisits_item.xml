@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fragment_nextvisits_item_cv_margin">
-        <!--TODO: margin and padding resource-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/CLayout"
             android:layout_width="match_parent"
@@ -23,7 +22,7 @@
                 android:id="@+id/lblStudentName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/fragment_nextvisits_item_padding"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@tools:sample/full_names" />
@@ -32,7 +31,7 @@
                 android:id="@+id/lblDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
+                android:padding="@dimen/fragment_nextvisits_item_padding"
                 app:layout_constraintStart_toEndOf="@+id/lblStudentName"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="12/02/2019" />

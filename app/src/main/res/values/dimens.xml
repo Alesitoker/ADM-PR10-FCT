@@ -26,4 +26,8 @@
     <dimen name="fragment_select_student_item_lblCompanyName_marginEnd">16dp</dimen>
     <dimen name="fragment_select_student_item_cv_margin">8dp</dimen>
     <dimen name="fragment_companies_item_cv_margin">8dp</dimen>
+    <dimen name="fragment_nextvisits_item_padding">8dp</dimen>
+    <dimen name="fragment_visits_item_lblStudentName_marrginTop">24dp</dimen>
+    <dimen name="fragment_visits_item_padding">8dp</dimen>
+    <dimen name="fragment_visits_item_lblDay_marginTop">8dp</dimen>
 </resources>
