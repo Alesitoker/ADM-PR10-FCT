@@ -1,6 +1,5 @@
 package com.iessaladillo.alejandro.adm_pr10_fct.ui.nextVisits;
 
-import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -23,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class NextVisitsFragmentAdapter extends ListAdapter<VisitStudent, NextVisitsFragmentAdapter.ViewHolder> {
 
     private OnSelectItemClickListener onSelectItemClickListener;
-    private SharedPreferences settings;
+    private int days;
 
     protected NextVisitsFragmentAdapter() {
         super(new DiffUtil.ItemCallback<VisitStudent>() {
@@ -68,6 +67,10 @@ public class NextVisitsFragmentAdapter extends ListAdapter<VisitStudent, NextVis
         this.onSelectItemClickListener = onSelectItemClickListener;
     }
 
+    public void setDays(int days) {
+        this.days = days;
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
 
         FragmentNextvisitsItemBinding b;
@@ -92,7 +95,7 @@ public class NextVisitsFragmentAdapter extends ListAdapter<VisitStudent, NextVis
 
                 }
                 calendar.setTime(date);
-                calendar.add(Calendar.DAY_OF_MONTH, 2);
+                calendar.add(Calendar.DAY_OF_MONTH, days);
                 b.lblDay.setText(format.format(calendar.getTime()));
             } else {
                 b.lblDay.setText(R.string.message_nextvisit_not_visit_yet);
