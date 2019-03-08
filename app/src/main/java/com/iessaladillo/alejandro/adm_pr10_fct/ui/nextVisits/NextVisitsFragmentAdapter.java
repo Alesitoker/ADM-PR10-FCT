@@ -1,16 +1,19 @@
 package com.iessaladillo.alejandro.adm_pr10_fct.ui.nextVisits;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import com.iessaladillo.alejandro.adm_pr10_fct.R;
 import com.iessaladillo.alejandro.adm_pr10_fct.data.local.model.VisitStudent;
 import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentNextvisitsItemBinding;
-import com.iessaladillo.alejandro.adm_pr10_fct.databinding.FragmentVisitsItemBinding;
 import com.iessaladillo.alejandro.adm_pr10_fct.ui.OnSelectItemClickListener;
-import com.iessaladillo.alejandro.adm_pr10_fct.ui.visits.list.ListVisitsFragmentAdapter;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -20,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class NextVisitsFragmentAdapter extends ListAdapter<VisitStudent, NextVisitsFragmentAdapter.ViewHolder> {
 
     private OnSelectItemClickListener onSelectItemClickListener;
+    private SharedPreferences settings;
 
     protected NextVisitsFragmentAdapter() {
         super(new DiffUtil.ItemCallback<VisitStudent>() {
@@ -76,8 +80,20 @@ public class NextVisitsFragmentAdapter extends ListAdapter<VisitStudent, NextVis
         }
 
         public void bind(VisitStudent visit) {
+            String pattern = "dd/M/yyyy";
+            SimpleDateFormat format = new SimpleDateFormat(pattern);
+            Date date = new Date();
+            Calendar calendar = Calendar.getInstance();
+
             if (visit.getDay() != null) {
-                b.lblDay.setText(visit.getDay());
+                try {
+                    date = format.parse(visit.getDay());
+                } catch (ParseException e) {
+
+                }
+                calendar.setTime(date);
+                calendar.add(Calendar.DAY_OF_MONTH, 2);
+                b.lblDay.setText(format.format(calendar.getTime()));
             } else {
                 b.lblDay.setText(R.string.message_nextvisit_not_visit_yet);
             }
