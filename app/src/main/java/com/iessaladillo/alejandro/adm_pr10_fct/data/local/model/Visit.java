@@ -14,10 +14,7 @@ import static androidx.room.ForeignKey.RESTRICT;
         childColumns = "studentId",
         onDelete = RESTRICT,
         onUpdate = CASCADE
-), indices = {@Index(value = {"studentId"},
-        unique = true
-)
-})
+), indices = {@Index(value = {"studentId"})})
 public class Visit {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")

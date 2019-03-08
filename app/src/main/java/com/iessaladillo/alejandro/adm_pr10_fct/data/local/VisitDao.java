@@ -20,6 +20,6 @@ public interface VisitDao extends BaseDao<Visit> {
     LiveData<VisitStudent> queryVisit(long visitId);
 
     @Query("SELECT v.id, v.day, v.startTime, v.endTime, v.observations, v.studentId, s.name AS studentName " +
-            "FROM student s LEFT JOIN visit v ON s.id = v.studentId ORDER BY s.name, v.day, v.startTime")
+            "FROM student s LEFT JOIN visit v ON s.id = v.studentId GROUP BY s.id ORDER BY s.name, v.day, v.startTime")
     LiveData<List<VisitStudent>> queryNextVisits();
 }

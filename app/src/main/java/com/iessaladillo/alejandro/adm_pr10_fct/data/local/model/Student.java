@@ -13,9 +13,7 @@ import static androidx.room.ForeignKey.*;
         childColumns = "companyId",
         onDelete = RESTRICT,
         onUpdate = RESTRICT
-),indices = {@Index(value = {"companyId"},
-        unique = true
-)})
+),indices = {@Index(value = {"companyId"})})
 public class Student {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
